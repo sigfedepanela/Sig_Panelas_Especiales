@@ -48,33 +48,33 @@ jsonSource_MunicipiosTomadePrecios_3.addFeatures(features_MunicipiosTomadePrecio
                 source:jsonSource_MunicipiosTomadePrecios_3, 
                 style: style_MunicipiosTomadePrecios_3,
                 title: '<img src="styles/legend/MunicipiosTomadePrecios_3.png" /> Municipios Toma de Precios'
-            });var format_PreciosTerceraSemanadeMayode2019_4 = new ol.format.GeoJSON();
-var features_PreciosTerceraSemanadeMayode2019_4 = format_PreciosTerceraSemanadeMayode2019_4.readFeatures(json_PreciosTerceraSemanadeMayode2019_4, 
+            });var format_PreciosCuartaSemanadeMayode2019_4 = new ol.format.GeoJSON();
+var features_PreciosCuartaSemanadeMayode2019_4 = format_PreciosCuartaSemanadeMayode2019_4.readFeatures(json_PreciosCuartaSemanadeMayode2019_4, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_PreciosTerceraSemanadeMayode2019_4 = new ol.source.Vector({
+var jsonSource_PreciosCuartaSemanadeMayode2019_4 = new ol.source.Vector({
     attributions: '<a href=""></a>',
 });
-jsonSource_PreciosTerceraSemanadeMayode2019_4.addFeatures(features_PreciosTerceraSemanadeMayode2019_4);var lyr_PreciosTerceraSemanadeMayode2019_4 = new ol.layer.Vector({
+jsonSource_PreciosCuartaSemanadeMayode2019_4.addFeatures(features_PreciosCuartaSemanadeMayode2019_4);var lyr_PreciosCuartaSemanadeMayode2019_4 = new ol.layer.Vector({
                 declutter: true,
-                source:jsonSource_PreciosTerceraSemanadeMayode2019_4, 
-                style: style_PreciosTerceraSemanadeMayode2019_4,
-                title: '<img src="styles/legend/PreciosTerceraSemanadeMayode2019_4.png" /> Precios Tercera Semana de Mayo de 2019'
+                source:jsonSource_PreciosCuartaSemanadeMayode2019_4, 
+                style: style_PreciosCuartaSemanadeMayode2019_4,
+                title: '<img src="styles/legend/PreciosCuartaSemanadeMayode2019_4.png" /> Precios Cuarta Semana de Mayo de 2019'
             });
 
-lyr_OpenStreetMap_0.setVisible(true);lyr_LimiteDepartamental_1.setVisible(true);lyr_PreciosPanelasEspeciales_2.setVisible(true);lyr_MunicipiosTomadePrecios_3.setVisible(true);lyr_PreciosTerceraSemanadeMayode2019_4.setVisible(false);
-var layersList = [lyr_OpenStreetMap_0,lyr_LimiteDepartamental_1,lyr_PreciosPanelasEspeciales_2,lyr_MunicipiosTomadePrecios_3,lyr_PreciosTerceraSemanadeMayode2019_4];
+lyr_OpenStreetMap_0.setVisible(true);lyr_LimiteDepartamental_1.setVisible(true);lyr_PreciosPanelasEspeciales_2.setVisible(true);lyr_MunicipiosTomadePrecios_3.setVisible(true);lyr_PreciosCuartaSemanadeMayode2019_4.setVisible(false);
+var layersList = [lyr_OpenStreetMap_0,lyr_LimiteDepartamental_1,lyr_PreciosPanelasEspeciales_2,lyr_MunicipiosTomadePrecios_3,lyr_PreciosCuartaSemanadeMayode2019_4];
 lyr_LimiteDepartamental_1.set('fieldAliases', {'DEPT': 'DEPT', });
 lyr_PreciosPanelasEspeciales_2.set('fieldAliases', {'Departamen': 'Departamen', 'Año': 'Año', 'MES': 'MES', 'SEMANA': 'SEMANA', '$ por Kg': '$ por Kg', '$ Prom Añ': '$ Prom Añ', 'Prom_ Pais': 'Prom_ Pais', 'PANELA': 'PANELA', });
 lyr_MunicipiosTomadePrecios_3.set('fieldAliases', {'DEPT': 'DEPT', 'MUNICIPIO': 'MUNICIPIO', });
-lyr_PreciosTerceraSemanadeMayode2019_4.set('fieldAliases', {'DEPT': 'DEPT', 'MUNICIPIO': 'MUNICIPIO', });
+lyr_PreciosCuartaSemanadeMayode2019_4.set('fieldAliases', {'DEPT': 'DEPT', 'MUNICIPIO': 'MUNICIPIO', });
 lyr_LimiteDepartamental_1.set('fieldImages', {'DEPT': 'TextEdit', });
 lyr_PreciosPanelasEspeciales_2.set('fieldImages', {'Departamen': 'TextEdit', 'Año': 'TextEdit', 'MES': 'TextEdit', 'SEMANA': 'TextEdit', '$ por Kg': 'TextEdit', '$ Prom Añ': 'TextEdit', 'Prom_ Pais': 'TextEdit', 'PANELA': 'TextEdit', });
 lyr_MunicipiosTomadePrecios_3.set('fieldImages', {'DEPT': 'TextEdit', 'MUNICIPIO': 'TextEdit', });
-lyr_PreciosTerceraSemanadeMayode2019_4.set('fieldImages', {'DEPT': 'TextEdit', 'MUNICIPIO': 'TextEdit', });
+lyr_PreciosCuartaSemanadeMayode2019_4.set('fieldImages', {'DEPT': 'TextEdit', 'MUNICIPIO': 'TextEdit', });
 lyr_LimiteDepartamental_1.set('fieldLabels', {'DEPT': 'inline label', });
 lyr_PreciosPanelasEspeciales_2.set('fieldLabels', {'Departamen': 'inline label', 'Año': 'inline label', 'MES': 'inline label', 'SEMANA': 'inline label', '$ por Kg': 'inline label', '$ Prom Añ': 'inline label', 'Prom_ Pais': 'inline label', 'PANELA': 'inline label', });
 lyr_MunicipiosTomadePrecios_3.set('fieldLabels', {'DEPT': 'inline label', 'MUNICIPIO': 'inline label', });
-lyr_PreciosTerceraSemanadeMayode2019_4.set('fieldLabels', {'DEPT': 'inline label', 'MUNICIPIO': 'inline label', });
-lyr_PreciosTerceraSemanadeMayode2019_4.on('precompose', function(evt) {
+lyr_PreciosCuartaSemanadeMayode2019_4.set('fieldLabels', {'DEPT': 'inline label', 'MUNICIPIO': 'inline label', });
+lyr_PreciosCuartaSemanadeMayode2019_4.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
