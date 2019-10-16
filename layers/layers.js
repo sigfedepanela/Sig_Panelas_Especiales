@@ -32,11 +32,11 @@ jsonSource_PreciosPanelasEspeciales_2.addFeatures(features_PreciosPanelasEspecia
                 source:jsonSource_PreciosPanelasEspeciales_2, 
                 style: style_PreciosPanelasEspeciales_2,
     title: 'Precios Panelas Especiales<br />\
-    <img src="styles/legend/PreciosPanelasEspeciales_2_0.png" />  1625 - 1780 <br />\
-    <img src="styles/legend/PreciosPanelasEspeciales_2_1.png" />  1780 - 1935 <br />\
-    <img src="styles/legend/PreciosPanelasEspeciales_2_2.png" />  1935 - 2090 <br />\
-    <img src="styles/legend/PreciosPanelasEspeciales_2_3.png" />  2090 - 2245 <br />\
-    <img src="styles/legend/PreciosPanelasEspeciales_2_4.png" />  2245 - 2400 <br />'
+    <img src="styles/legend/PreciosPanelasEspeciales_2_0.png" />  1450 - 1600 <br />\
+    <img src="styles/legend/PreciosPanelasEspeciales_2_1.png" />  1600 - 1750 <br />\
+    <img src="styles/legend/PreciosPanelasEspeciales_2_2.png" />  1750 - 1900 <br />\
+    <img src="styles/legend/PreciosPanelasEspeciales_2_3.png" />  1900 - 2050 <br />\
+    <img src="styles/legend/PreciosPanelasEspeciales_2_4.png" />  2050 - 2200 <br />'
         });var format_MunicipiosTomadePrecios_3 = new ol.format.GeoJSON();
 var features_MunicipiosTomadePrecios_3 = format_MunicipiosTomadePrecios_3.readFeatures(json_MunicipiosTomadePrecios_3, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -48,33 +48,33 @@ jsonSource_MunicipiosTomadePrecios_3.addFeatures(features_MunicipiosTomadePrecio
                 source:jsonSource_MunicipiosTomadePrecios_3, 
                 style: style_MunicipiosTomadePrecios_3,
                 title: '<img src="styles/legend/MunicipiosTomadePrecios_3.png" /> Municipios Toma de Precios'
-            });var format_PreciosPrimeraSemanadeOctubrede2019_4 = new ol.format.GeoJSON();
-var features_PreciosPrimeraSemanadeOctubrede2019_4 = format_PreciosPrimeraSemanadeOctubrede2019_4.readFeatures(json_PreciosPrimeraSemanadeOctubrede2019_4, 
+            });var format_PreciosSegundaSemanadeOctubrede2019_4 = new ol.format.GeoJSON();
+var features_PreciosSegundaSemanadeOctubrede2019_4 = format_PreciosSegundaSemanadeOctubrede2019_4.readFeatures(json_PreciosSegundaSemanadeOctubrede2019_4, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_PreciosPrimeraSemanadeOctubrede2019_4 = new ol.source.Vector({
+var jsonSource_PreciosSegundaSemanadeOctubrede2019_4 = new ol.source.Vector({
     attributions: '<a href=""></a>',
 });
-jsonSource_PreciosPrimeraSemanadeOctubrede2019_4.addFeatures(features_PreciosPrimeraSemanadeOctubrede2019_4);var lyr_PreciosPrimeraSemanadeOctubrede2019_4 = new ol.layer.Vector({
+jsonSource_PreciosSegundaSemanadeOctubrede2019_4.addFeatures(features_PreciosSegundaSemanadeOctubrede2019_4);var lyr_PreciosSegundaSemanadeOctubrede2019_4 = new ol.layer.Vector({
                 declutter: true,
-                source:jsonSource_PreciosPrimeraSemanadeOctubrede2019_4, 
-                style: style_PreciosPrimeraSemanadeOctubrede2019_4,
-                title: '<img src="styles/legend/PreciosPrimeraSemanadeOctubrede2019_4.png" /> Precios Primera Semana de Octubre de 2019'
+                source:jsonSource_PreciosSegundaSemanadeOctubrede2019_4, 
+                style: style_PreciosSegundaSemanadeOctubrede2019_4,
+                title: '<img src="styles/legend/PreciosSegundaSemanadeOctubrede2019_4.png" /> Precios Segunda Semana de Octubre de 2019'
             });
 
-lyr_OpenStreetMap_0.setVisible(true);lyr_LimiteDepartamental_1.setVisible(true);lyr_PreciosPanelasEspeciales_2.setVisible(true);lyr_MunicipiosTomadePrecios_3.setVisible(true);lyr_PreciosPrimeraSemanadeOctubrede2019_4.setVisible(false);
-var layersList = [lyr_OpenStreetMap_0,lyr_LimiteDepartamental_1,lyr_PreciosPanelasEspeciales_2,lyr_MunicipiosTomadePrecios_3,lyr_PreciosPrimeraSemanadeOctubrede2019_4];
+lyr_OpenStreetMap_0.setVisible(true);lyr_LimiteDepartamental_1.setVisible(true);lyr_PreciosPanelasEspeciales_2.setVisible(true);lyr_MunicipiosTomadePrecios_3.setVisible(true);lyr_PreciosSegundaSemanadeOctubrede2019_4.setVisible(false);
+var layersList = [lyr_OpenStreetMap_0,lyr_LimiteDepartamental_1,lyr_PreciosPanelasEspeciales_2,lyr_MunicipiosTomadePrecios_3,lyr_PreciosSegundaSemanadeOctubrede2019_4];
 lyr_LimiteDepartamental_1.set('fieldAliases', {'DEPT': 'DEPT', });
 lyr_PreciosPanelasEspeciales_2.set('fieldAliases', {'Departamen': 'Departamen', 'Año': 'Año', 'MES': 'MES', 'SEMANA': 'SEMANA', '$ por Kg': '$ por Kg', '$ Prom Añ': '$ Prom Añ', 'Prom_ Pais': 'Prom_ Pais', 'PANELA': 'PANELA', });
 lyr_MunicipiosTomadePrecios_3.set('fieldAliases', {'DEPT': 'DEPT', 'MUNICIPIO': 'MUNICIPIO', });
-lyr_PreciosPrimeraSemanadeOctubrede2019_4.set('fieldAliases', {'DEPT': 'DEPT', 'MUNICIPIO': 'MUNICIPIO', });
+lyr_PreciosSegundaSemanadeOctubrede2019_4.set('fieldAliases', {'DEPT': 'DEPT', 'MUNICIPIO': 'MUNICIPIO', });
 lyr_LimiteDepartamental_1.set('fieldImages', {'DEPT': 'TextEdit', });
 lyr_PreciosPanelasEspeciales_2.set('fieldImages', {'Departamen': 'TextEdit', 'Año': 'TextEdit', 'MES': 'TextEdit', 'SEMANA': 'TextEdit', '$ por Kg': 'TextEdit', '$ Prom Añ': 'TextEdit', 'Prom_ Pais': 'TextEdit', 'PANELA': 'TextEdit', });
 lyr_MunicipiosTomadePrecios_3.set('fieldImages', {'DEPT': 'TextEdit', 'MUNICIPIO': 'TextEdit', });
-lyr_PreciosPrimeraSemanadeOctubrede2019_4.set('fieldImages', {'DEPT': 'TextEdit', 'MUNICIPIO': 'TextEdit', });
+lyr_PreciosSegundaSemanadeOctubrede2019_4.set('fieldImages', {'DEPT': 'TextEdit', 'MUNICIPIO': 'TextEdit', });
 lyr_LimiteDepartamental_1.set('fieldLabels', {'DEPT': 'inline label', });
 lyr_PreciosPanelasEspeciales_2.set('fieldLabels', {'Departamen': 'inline label', 'Año': 'inline label', 'MES': 'inline label', 'SEMANA': 'inline label', '$ por Kg': 'inline label', '$ Prom Añ': 'inline label', 'Prom_ Pais': 'inline label', 'PANELA': 'inline label', });
 lyr_MunicipiosTomadePrecios_3.set('fieldLabels', {'DEPT': 'inline label', 'MUNICIPIO': 'inline label', });
-lyr_PreciosPrimeraSemanadeOctubrede2019_4.set('fieldLabels', {'DEPT': 'inline label', 'MUNICIPIO': 'inline label', });
-lyr_PreciosPrimeraSemanadeOctubrede2019_4.on('precompose', function(evt) {
+lyr_PreciosSegundaSemanadeOctubrede2019_4.set('fieldLabels', {'DEPT': 'inline label', 'MUNICIPIO': 'inline label', });
+lyr_PreciosSegundaSemanadeOctubrede2019_4.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
