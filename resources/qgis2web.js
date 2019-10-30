@@ -1,5 +1,5 @@
-@GEOLOCATEHEAD@
-@MEASURECONTROL@
+
+
 var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
@@ -20,19 +20,24 @@ var expandedAttribution = new ol.control.Attribution({
 
 var map = new ol.Map({
     controls: ol.control.defaults({attribution:false}).extend([
-        @CONTROLS@
+        expandedAttribution
     ]),
     target: document.getElementById('map'),
     renderer: 'canvas',
     overlays: [overlayPopup],
     layers: layersList,
     view: new ol.View({
-        @VIEW@
+         maxZoom: 28, minZoom: 2
     })
 });
-@LAYERSLIST@
-@LAYERSEARCH@
-map.getView().fit(@BOUNDS@, map.getSize());
+
+var layerSwitcher = new ol.control.LayerSwitcher({tipLabel: "Layers"});
+map.addControl(layerSwitcher);
+layerSwitcher.hidePanel = function() {};
+layerSwitcher.showPanel();
+
+
+map.getView().fit([-9806472.564530, -653191.358358, -6081862.345416, 1522293.152816], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -72,8 +77,8 @@ var featureOverlay = new ol.layer.Vector({
     updateWhileInteracting: true // optional, for instant visual feedback
 });
 
-var doHighlight = @DOHIGHLIGHT@;
-var doHover = @ONHOVER@;
+var doHighlight = false;
+var doHover = false;
 
 var highlight;
 var onPointerMove = function(evt) {
@@ -180,7 +185,7 @@ var onPointerMove = function(evt) {
                     highlightStyle = new ol.style.Style({
                         image: new ol.style.Circle({
                             fill: new ol.style.Fill({
-                                color: "@HIGHLIGHTFILL@"
+                                color: "#ffff00"
                             }),
                             radius: radius
                         })
@@ -191,7 +196,7 @@ var onPointerMove = function(evt) {
 
                     highlightStyle = new ol.style.Style({
                         stroke: new ol.style.Stroke({
-                            color: '@HIGHLIGHTFILL@',
+                            color: '#ffff00',
                             lineDash: null,
                             width: featureWidth
                         })
@@ -200,7 +205,7 @@ var onPointerMove = function(evt) {
                 } else {
                     highlightStyle = new ol.style.Style({
                         fill: new ol.style.Fill({
-                            color: '@HIGHLIGHTFILL@'
+                            color: '#ffff00'
                         })
                     })
                 }
@@ -335,7 +340,7 @@ var onSingleClick = function(evt) {
     }
 };
 
-@MEASURING@
+
 
 map.on('pointermove', function(evt) {
     onPointerMove(evt);
@@ -343,10 +348,10 @@ map.on('pointermove', function(evt) {
 map.on('singleclick', function(evt) {
     onSingleClick(evt);
 });
-@MEASURE@
-@MEASUREUNIT@
-@GEOLOCATE@
-@GEOCODINGSCRIPT@@MAPUNITLAYERS@
+
+
+
+
 
 var attribution = document.getElementsByClassName('ol-attribution')[0];
 var attributionList = attribution.getElementsByTagName('ul')[0];
@@ -355,4 +360,3 @@ var qgis2webAttribution = document.createElement('li');
 qgis2webAttribution.innerHTML = '<a href="https://github.com/tomchadwin/qgis2web">qgis2web</a>';
 attributionList.insertBefore(qgis2webAttribution, firstLayerAttribution);
 
-@M2PX@@GRID@
