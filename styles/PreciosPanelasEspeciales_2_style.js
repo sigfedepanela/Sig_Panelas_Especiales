@@ -20,35 +20,35 @@ var style_PreciosPanelasEspeciales_2 = function(feature, resolution){
     if ("" !== null) {
         labelText = String("");
     }
-    if (value >= 1590.000000 && value <= 1732.000000) {
+    if (value >= 1500.000000 && value <= 1660.000000) {
             style = [ new ol.style.Style({
         stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}),fill: new ol.style.Fill({color: 'rgba(208,28,139,1.0)'}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
     })]
-                    } else if (value >= 1732.000000 && value <= 1874.000000) {
+                    } else if (value >= 1660.000000 && value <= 1820.000000) {
             style = [ new ol.style.Style({
         stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}),fill: new ol.style.Fill({color: 'rgba(241,182,218,1.0)'}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
     })]
-                    } else if (value >= 1874.000000 && value <= 2016.000000) {
+                    } else if (value >= 1820.000000 && value <= 1980.000000) {
             style = [ new ol.style.Style({
         stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}),fill: new ol.style.Fill({color: 'rgba(247,247,247,1.0)'}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
     })]
-                    } else if (value >= 2016.000000 && value <= 2158.000000) {
+                    } else if (value >= 1980.000000 && value <= 2140.000000) {
             style = [ new ol.style.Style({
         stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}),fill: new ol.style.Fill({color: 'rgba(184,225,134,1.0)'}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
     })]
-                    } else if (value >= 2158.000000 && value <= 2300.000000) {
+                    } else if (value >= 2140.000000 && value <= 2300.000000) {
             style = [ new ol.style.Style({
         stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}),fill: new ol.style.Fill({color: 'rgba(77,172,38,1.0)'}),
         text: createTextStyle(feature, resolution, labelText, labelFont,

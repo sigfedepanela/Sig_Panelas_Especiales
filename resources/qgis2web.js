@@ -37,7 +37,7 @@ layerSwitcher.hidePanel = function() {};
 layerSwitcher.showPanel();
 
 
-map.getView().fit([-9806472.564530, -653191.358358, -6081862.345416, 1522293.152816], map.getSize());
+map.getView().fit([-9247259.314642, -653191.494748, -6626835.608591, 1522293.480396], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -127,7 +127,7 @@ var onPointerMove = function(evt) {
                             if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "header label") {
                                 popupField += '<strong>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</strong><br />';
                             }
-                            if (layer.get('fieldImages')[currentFeatureKeys[i]] != "Photo") {
+                            if (layer.get('fieldImages')[currentFeatureKeys[i]] != "ExternalResource") {
                                 popupField += (clusterFeature.get(currentFeatureKeys[i]) != null ? Autolinker.link(String(clusterFeature.get(currentFeatureKeys[i]))) + '</td>' : '');
                             } else {
                                 popupField += (clusterFeature.get(currentFeatureKeys[i]) != null ? '<img src="images/' + clusterFeature.get(currentFeatureKeys[i]).replace(/[\\\/:]/g, '_').trim()  + '" /></td>' : '');
@@ -153,7 +153,7 @@ var onPointerMove = function(evt) {
                         if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "header label") {
                             popupField += '<strong>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</strong><br />';
                         }
-                        if (layer.get('fieldImages')[currentFeatureKeys[i]] != "Photo") {
+                        if (layer.get('fieldImages')[currentFeatureKeys[i]] != "ExternalResource") {
                             popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? Autolinker.link(String(currentFeature.get(currentFeatureKeys[i]))) + '</td>' : '');
                         } else {
                             popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? '<img src="images/' + currentFeature.get(currentFeatureKeys[i]).replace(/[\\\/:]/g, '_').trim()  + '" /></td>' : '');
@@ -243,7 +243,7 @@ var onSingleClick = function(evt) {
     var clusteredFeatures;
     var popupText = '<ul>';
     map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-        if (feature instanceof ol.Feature) {
+        if (feature instanceof ol.Feature && (layer.get("interactive") || layer.get("interactive") == undefined)) {
             var doPopup = false;
             for (k in layer.get('fieldImages')) {
                 if (layer.get('fieldImages')[k] != "Hidden") {
@@ -270,7 +270,7 @@ var onSingleClick = function(evt) {
                                 if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "header label") {
                                     popupField += '<strong>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</strong><br />';
                                 }
-                                if (layer.get('fieldImages')[currentFeatureKeys[i]] != "Photo") {
+                                if (layer.get('fieldImages')[currentFeatureKeys[i]] != "ExternalResource") {
                                     popupField += (clusterFeature.get(currentFeatureKeys[i]) != null ? Autolinker.link(String(clusterFeature.get(currentFeatureKeys[i]))) + '</td>' : '');
                                 } else {
                                     popupField += (clusterFeature.get(currentFeatureKeys[i]) != null ? '<img src="images/' + clusterFeature.get(currentFeatureKeys[i]).replace(/[\\\/:]/g, '_').trim()  + '" /></td>' : '');
@@ -296,7 +296,7 @@ var onSingleClick = function(evt) {
                             if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "header label") {
                                 popupField += '<strong>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</strong><br />';
                             }
-                            if (layer.get('fieldImages')[currentFeatureKeys[i]] != "Photo") {
+                            if (layer.get('fieldImages')[currentFeatureKeys[i]] != "ExternalResource") {
                                 popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? Autolinker.link(String(currentFeature.get(currentFeatureKeys[i]))) + '</td>' : '');
                             } else {
                                 popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? '<img src="images/' + currentFeature.get(currentFeatureKeys[i]).replace(/[\\\/:]/g, '_').trim()  + '" /></td>' : '');
@@ -352,11 +352,21 @@ map.on('singleclick', function(evt) {
 
 
 
-
-var attribution = document.getElementsByClassName('ol-attribution')[0];
-var attributionList = attribution.getElementsByTagName('ul')[0];
-var firstLayerAttribution = attributionList.getElementsByTagName('li')[0];
-var qgis2webAttribution = document.createElement('li');
-qgis2webAttribution.innerHTML = '<a href="https://github.com/tomchadwin/qgis2web">qgis2web</a>';
-attributionList.insertBefore(qgis2webAttribution, firstLayerAttribution);
-
+var attributionComplete = false;
+map.on("rendercomplete", function(evt) {
+    if (!attributionComplete) {
+        var attribution = document.getElementsByClassName('ol-attribution')[0];
+        var attributionList = attribution.getElementsByTagName('ul')[0];
+        var firstLayerAttribution = attributionList.getElementsByTagName('li')[0];
+        var qgis2webAttribution = document.createElement('li');
+        qgis2webAttribution.innerHTML = '<a href="https://github.com/tomchadwin/qgis2web">qgis2web</a> &middot; ';
+        var olAttribution = document.createElement('li');
+        olAttribution.innerHTML = '<a href="https://openlayers.org/">OpenLayers</a> &middot; ';
+        var qgisAttribution = document.createElement('li');
+        qgisAttribution.innerHTML = '<a href="https://qgis.org/">QGIS</a>';
+        attributionList.insertBefore(qgis2webAttribution, firstLayerAttribution);
+        attributionList.insertBefore(olAttribution, firstLayerAttribution);
+        attributionList.insertBefore(qgisAttribution, firstLayerAttribution);
+        attributionComplete = true;
+    }
+})
