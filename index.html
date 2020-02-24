@@ -36,7 +36,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.40641677295,-86.1903991762],[14.5676688565,-61.782406914]]);
+        }).fitBounds([[-4.21619652616,-94.7403234272],[13.9340333467,-53.0006788497]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -122,7 +122,7 @@
 
         function style_PreciosPanelasEspeciales_1_0(feature) {
             switch(String(feature.properties['$ por Kg'])) {
-                case '1825.0':
+                case '1825':
                     return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -136,7 +136,7 @@
                 fillColor: 'rgba(205,130,104,1.0)',
             }
                     break;
-                case '1860.0':
+                case '1860':
                     return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -150,7 +150,7 @@
                 fillColor: 'rgba(104,225,185,1.0)',
             }
                     break;
-                case '1950.0':
+                case '1950':
                     return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -164,7 +164,7 @@
                 fillColor: 'rgba(27,54,202,1.0)',
             }
                     break;
-                case '3000.0':
+                case '3000':
                     return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -230,6 +230,8 @@
         });
         bounds_group.addLayer(layer_MunicipiosTomadePrecios_2);
         map.addLayer(layer_MunicipiosTomadePrecios_2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_2.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_2,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_18250.png" /></td><td>1825</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_18601.png" /></td><td>1860</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_19502.png" /></td><td>1950</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_30003.png" /></td><td>3000</td></tr></table>': layer_PreciosPanelasEspeciales_1,'<img src="legend/LimiteDepartamental_0.png" /> Limite Departamental': layer_LimiteDepartamental_0,}).addTo(map);
         setBounds();
         </script>
     </body>
