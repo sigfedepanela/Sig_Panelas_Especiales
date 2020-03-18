@@ -121,7 +121,7 @@
         }
 
         function style_PreciosPanelasEspeciales_1_0(feature) {
-            if (feature.properties['$ por Kg'] >= 1650.000000 && feature.properties['$ por Kg'] <= 1808.250000 ) {
+            if (feature.properties['$ por Kg'] >= 1925.000000 && feature.properties['$ por Kg'] <= 2014.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -135,7 +135,7 @@
                 fillColor: 'rgba(215,25,28,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 1808.250000 && feature.properties['$ por Kg'] <= 1966.500000 ) {
+            if (feature.properties['$ por Kg'] >= 2014.500000 && feature.properties['$ por Kg'] <= 2104.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -149,7 +149,7 @@
                 fillColor: 'rgba(253,201,128,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 1966.500000 && feature.properties['$ por Kg'] <= 2124.750000 ) {
+            if (feature.properties['$ por Kg'] >= 2104.000000 && feature.properties['$ por Kg'] <= 2193.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -163,7 +163,7 @@
                 fillColor: 'rgba(199,232,173,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 2124.750000 && feature.properties['$ por Kg'] <= 2283.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2193.500000 && feature.properties['$ por Kg'] <= 2283.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -229,7 +229,7 @@
         bounds_group.addLayer(layer_MunicipiosTomadePrecios_2);
         map.addLayer(layer_MunicipiosTomadePrecios_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_2.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_2,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_165018080.png" /></td><td> 1650 - 1808 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_180819661.png" /></td><td> 1808 - 1966 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_196621252.png" /></td><td> 1966 - 2125 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_212522833.png" /></td><td> 2125 - 2283 </td></tr></table>': layer_PreciosPanelasEspeciales_1,'<img src="legend/LimiteDepartamental_0.png" /> Limite Departamental': layer_LimiteDepartamental_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_2.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_2,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_192520140.png" /></td><td> 1925 - 2014 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_201421041.png" /></td><td> 2014 - 2104 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_210421942.png" /></td><td> 2104 - 2194 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_219422833.png" /></td><td> 2194 - 2283 </td></tr></table>': layer_PreciosPanelasEspeciales_1,'<img src="legend/LimiteDepartamental_0.png" /> Limite Departamental': layer_LimiteDepartamental_0,}).addTo(map);
         setBounds();
         </script>
     </body>
