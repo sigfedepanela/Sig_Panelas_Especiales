@@ -36,7 +36,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.71406815481,-84.5553404931],[13.6246982637,-52.5630514013]]);
+        }).fitBounds([[-4.61982644196,-85.6897643965],[13.9114533335,-55.0452693985]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -61,14 +61,14 @@
             return {
                 pane: 'pane_LimiteDepartamental_0',
                 opacity: 1,
-                color: 'rgba(128,152,72,0.34)',
+                color: 'rgba(128,152,72,0.95)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(186,221,105,0.34)',
+                fillColor: 'rgba(186,221,105,0.95)',
             }
         }
         map.createPane('pane_LimiteDepartamental_0');
@@ -121,7 +121,7 @@
         }
 
         function style_PreciosPanelasEspeciales_1_0(feature) {
-            if (feature.properties['$ por Kg'] >= 1925.000000 && feature.properties['$ por Kg'] <= 2014.500000 ) {
+            if (feature.properties['$ por Kg'] >= 2020.000000 && feature.properties['$ por Kg'] <= 2229.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -135,7 +135,7 @@
                 fillColor: 'rgba(215,25,28,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 2014.500000 && feature.properties['$ por Kg'] <= 2104.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2229.500000 && feature.properties['$ por Kg'] <= 2439.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -149,7 +149,7 @@
                 fillColor: 'rgba(253,201,128,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 2104.000000 && feature.properties['$ por Kg'] <= 2193.500000 ) {
+            if (feature.properties['$ por Kg'] >= 2439.000000 && feature.properties['$ por Kg'] <= 2648.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -163,7 +163,7 @@
                 fillColor: 'rgba(199,232,173,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 2193.500000 && feature.properties['$ por Kg'] <= 2283.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2648.500000 && feature.properties['$ por Kg'] <= 2858.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -229,7 +229,7 @@
         bounds_group.addLayer(layer_MunicipiosTomadePrecios_2);
         map.addLayer(layer_MunicipiosTomadePrecios_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_2.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_2,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_192520140.png" /></td><td> 1925 - 2014 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_201421041.png" /></td><td> 2014 - 2104 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_210421942.png" /></td><td> 2104 - 2194 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_219422833.png" /></td><td> 2194 - 2283 </td></tr></table>': layer_PreciosPanelasEspeciales_1,'<img src="legend/LimiteDepartamental_0.png" /> Limite Departamental': layer_LimiteDepartamental_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_2.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_2,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_202022300.png" /></td><td> 2020 - 2230 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_223024391.png" /></td><td> 2230 - 2439 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_243926482.png" /></td><td> 2439 - 2648 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_264828583.png" /></td><td> 2648 - 2858 </td></tr></table>': layer_PreciosPanelasEspeciales_1,'<img src="legend/LimiteDepartamental_0.png" /> Limite Departamental': layer_LimiteDepartamental_0,}).addTo(map);
         setBounds();
         </script>
     </body>
