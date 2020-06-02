@@ -36,7 +36,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-5.57362261033,-89.951650515],[12.6851670356,-52.5385987828]]);
+        }).fitBounds([[-5.65850653735,-86.5223827787],[12.9521220786,-55.9328677153]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -121,7 +121,7 @@
         }
 
         function style_PreciosPanelasEspeciales_1_0(feature) {
-            if (feature.properties['$ por Kg'] >= 2440.000000 && feature.properties['$ por Kg'] <= 2580.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2133.000000 && feature.properties['$ por Kg'] <= 2349.750000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -135,7 +135,7 @@
                 fillColor: 'rgba(215,25,28,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 2580.000000 && feature.properties['$ por Kg'] <= 2720.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2349.750000 && feature.properties['$ por Kg'] <= 2566.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -149,7 +149,7 @@
                 fillColor: 'rgba(253,201,128,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 2720.000000 && feature.properties['$ por Kg'] <= 2860.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2566.500000 && feature.properties['$ por Kg'] <= 2783.250000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -163,7 +163,7 @@
                 fillColor: 'rgba(199,232,173,1.0)',
             }
             }
-            if (feature.properties['$ por Kg'] >= 2860.000000 && feature.properties['$ por Kg'] <= 3000.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2783.250000 && feature.properties['$ por Kg'] <= 3000.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
@@ -229,7 +229,7 @@
         bounds_group.addLayer(layer_MunicipiosTomadePrecios_2);
         map.addLayer(layer_MunicipiosTomadePrecios_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_2.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_2,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_244025800.png" /></td><td> 2440 - 2580 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_258027201.png" /></td><td> 2580 - 2720 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_272028602.png" /></td><td> 2720 - 2860 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_286030003.png" /></td><td> 2860 - 3000 </td></tr></table>': layer_PreciosPanelasEspeciales_1,'<img src="legend/LimiteDepartamental_0.png" /> Limite Departamental': layer_LimiteDepartamental_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_2.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_2,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_213323500.png" /></td><td> 2133 - 2350 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_235025661.png" /></td><td> 2350 - 2566 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_256627832.png" /></td><td> 2566 - 2783 </td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_278330003.png" /></td><td> 2783 - 3000 </td></tr></table>': layer_PreciosPanelasEspeciales_1,'<img src="legend/LimiteDepartamental_0.png" /> Limite Departamental': layer_LimiteDepartamental_0,}).addTo(map);
         setBounds();
         </script>
     </body>
