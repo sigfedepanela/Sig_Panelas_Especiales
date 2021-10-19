@@ -134,7 +134,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 2819.000000 && feature.properties['$ por Kg'] <= 3179.750000 ) {
+            if (feature.properties['$ por Kg'] >= 3400.000000 && feature.properties['$ por Kg'] <= 3484.750000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -149,7 +149,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3179.750000 && feature.properties['$ por Kg'] <= 3415.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3484.750000 && feature.properties['$ por Kg'] <= 3521.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -164,7 +164,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3415.000000 && feature.properties['$ por Kg'] <= 3597.500000 ) {
+            if (feature.properties['$ por Kg'] >= 3521.500000 && feature.properties['$ por Kg'] <= 3597.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -253,7 +253,7 @@
         bounds_group.addLayer(layer_MunicipiosTomadePrecios_3);
         map.addLayer(layer_MunicipiosTomadePrecios_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_3.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_3,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_281931800.png" /></td><td>2819 - 3180</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_318034151.png" /></td><td>3180 - 3415</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_341535982.png" /></td><td>3415 - 3598</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_359838003.png" /></td><td>3598 - 3800</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_3.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_3,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_340034850.png" /></td><td>3400 - 3485</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_348535221.png" /></td><td>3485 - 3522</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_352235982.png" /></td><td>3522 - 3598</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_359838003.png" /></td><td>3598 - 3800</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
         </script>
     </body>
