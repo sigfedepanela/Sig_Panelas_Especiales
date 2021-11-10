@@ -32,11 +32,10 @@
         <script src="js/labels.js"></script>
         <script src="data/LimiteDepartamental_1.js"></script>
         <script src="data/PreciosPanelasEspeciales_2.js"></script>
-        <script src="data/MunicipiosTomadePrecios_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-5.409157211275948,-85.88816275098948],[13.995049895749684,-52.13653216544137]]);
+        }).fitBounds([[-5.309184506754081,-87.79719816419068],[14.09450559252092,-49.48197313051548]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -97,35 +96,43 @@
         function pop_PreciosPanelasEspeciales_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Departamen'] !== null ? autolinker.link(feature.properties['Departamen'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Departamen</th>\
+                        <td>' + (feature.properties['Departamen'] !== null ? autolinker.link(feature.properties['Departamen'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Año'] !== null ? autolinker.link(feature.properties['Año'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Año</th>\
+                        <td>' + (feature.properties['Año'] !== null ? autolinker.link(feature.properties['Año'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['MES'] !== null ? autolinker.link(feature.properties['MES'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">MES</th>\
+                        <td>' + (feature.properties['MES'] !== null ? autolinker.link(feature.properties['MES'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['SEMANA'] !== null ? autolinker.link(feature.properties['SEMANA'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">SEMANA</th>\
+                        <td>' + (feature.properties['SEMANA'] !== null ? autolinker.link(feature.properties['SEMANA'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['$ por Kg'] !== null ? autolinker.link(feature.properties['$ por Kg'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">$ por Kg</th>\
+                        <td>' + (feature.properties['$ por Kg'] !== null ? autolinker.link(feature.properties['$ por Kg'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['$ Prom Añ'] !== null ? autolinker.link(feature.properties['$ Prom Añ'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">$ Prom Añ</th>\
+                        <td>' + (feature.properties['$ Prom Añ'] !== null ? autolinker.link(feature.properties['$ Prom Añ'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Prom_ Pais'] !== null ? autolinker.link(feature.properties['Prom_ Pais'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Prom_ Pais</th>\
+                        <td>' + (feature.properties['Prom_ Pais'] !== null ? autolinker.link(feature.properties['Prom_ Pais'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['PANELA'] !== null ? autolinker.link(feature.properties['PANELA'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">PANELA</th>\
+                        <td>' + (feature.properties['PANELA'] !== null ? autolinker.link(feature.properties['PANELA'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 3088.000000 && feature.properties['$ por Kg'] <= 3378.250000 ) {
+            if (feature.properties['$ por Kg'] >= 3288.000000 && feature.properties['$ por Kg'] <= 3409.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -140,7 +147,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3378.250000 && feature.properties['$ por Kg'] <= 3502.500000 ) {
+            if (feature.properties['$ por Kg'] >= 3409.500000 && feature.properties['$ por Kg'] <= 3510.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -155,7 +162,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3502.500000 && feature.properties['$ por Kg'] <= 3660.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3510.000000 && feature.properties['$ por Kg'] <= 3627.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -170,7 +177,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3660.000000 && feature.properties['$ por Kg'] <= 4050.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3627.500000 && feature.properties['$ por Kg'] <= 3800.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -200,49 +207,8 @@
         });
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
-        function pop_MunicipiosTomadePrecios_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DEPT'] !== null ? autolinker.link(feature.properties['DEPT'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(feature.properties['MUNICIPIO'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_MunicipiosTomadePrecios_3_0() {
-            return {
-                pane: 'pane_MunicipiosTomadePrecios_3',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(31,48,237,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_MunicipiosTomadePrecios_3');
-        map.getPane('pane_MunicipiosTomadePrecios_3').style.zIndex = 403;
-        map.getPane('pane_MunicipiosTomadePrecios_3').style['mix-blend-mode'] = 'normal';
-        var layer_MunicipiosTomadePrecios_3 = new L.geoJson(json_MunicipiosTomadePrecios_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_MunicipiosTomadePrecios_3',
-            layerName: 'layer_MunicipiosTomadePrecios_3',
-            pane: 'pane_MunicipiosTomadePrecios_3',
-            onEachFeature: pop_MunicipiosTomadePrecios_3,
-            style: style_MunicipiosTomadePrecios_3_0,
-        });
-        bounds_group.addLayer(layer_MunicipiosTomadePrecios_3);
-        map.addLayer(layer_MunicipiosTomadePrecios_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/MunicipiosTomadePrecios_3.png" /> Municipios Toma de Precios': layer_MunicipiosTomadePrecios_3,'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_308833780.png" /></td><td>3088 - 3378</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_337835031.png" /></td><td>3378 - 3503</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_350336602.png" /></td><td>3503 - 3660</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_366040503.png" /></td><td>3660 - 4050</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_328834100.png" /></td><td>3288 - 3410</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_341035101.png" /></td><td>3410 - 3510</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_351036282.png" /></td><td>3510 - 3628</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_362838003.png" /></td><td>3628 - 3800</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
         </script>
     </body>
