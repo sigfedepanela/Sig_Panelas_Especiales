@@ -35,7 +35,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-6.525764941896664,-85.90755659980616],[12.878703451083956,-53.834899347294524]]);
+        }).fitBounds([[-9.472164880924275,-85.36544457234747],[15.823913441733987,-54.252932828692366]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -56,12 +56,6 @@
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
         function pop_LimiteDepartamental_1(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DEPT'] !== null ? autolinker.link(feature.properties['DEPT'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_LimiteDepartamental_1_0() {
@@ -132,7 +126,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 3000.000000 && feature.properties['$ por Kg'] <= 3066.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3140.000000 && feature.properties['$ por Kg'] <= 3185.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -147,7 +141,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3066.000000 && feature.properties['$ por Kg'] <= 3154.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3185.000000 && feature.properties['$ por Kg'] <= 3260.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -162,7 +156,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3154.000000 && feature.properties['$ por Kg'] <= 3335.750000 ) {
+            if (feature.properties['$ por Kg'] >= 3260.000000 && feature.properties['$ por Kg'] <= 3423.250000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -177,7 +171,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3335.750000 && feature.properties['$ por Kg'] <= 3683.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3423.250000 && feature.properties['$ por Kg'] <= 3733.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -208,7 +202,7 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_300030660.png" /></td><td>3000 - 3066</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_306631541.png" /></td><td>3066 - 3154</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_315433362.png" /></td><td>3154 - 3336</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_333636833.png" /></td><td>3336 - 3683</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_314031850.png" /></td><td>3140 - 3185</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_318532601.png" /></td><td>3185 - 3260</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_326034232.png" /></td><td>3260 - 3423</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_342337333.png" /></td><td>3423 - 3733</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
         </script>
     </body>
