@@ -30,12 +30,11 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/LimiteDepartamental_1.js"></script>
-        <script src="data/PreciosPanelasEspeciales_2.js"></script>
+        <script src="data/PreciosPanelasEspeciales_1.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-9.472164880924275,-85.36544457234747],[15.823913441733987,-54.252932828692366]]);
+        }).fitBounds([[-14.306061821311275,-92.99628932176314],[18.702109232338366,-41.508826219036436]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -55,39 +54,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_LimiteDepartamental_1(feature, layer) {
-        }
-
-        function style_LimiteDepartamental_1_0() {
-            return {
-                pane: 'pane_LimiteDepartamental_1',
-                opacity: 1,
-                color: 'rgba(128,152,72,0.57)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(186,221,105,0.57)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_LimiteDepartamental_1');
-        map.getPane('pane_LimiteDepartamental_1').style.zIndex = 401;
-        map.getPane('pane_LimiteDepartamental_1').style['mix-blend-mode'] = 'normal';
-        var layer_LimiteDepartamental_1 = new L.geoJson(json_LimiteDepartamental_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_LimiteDepartamental_1',
-            layerName: 'layer_LimiteDepartamental_1',
-            pane: 'pane_LimiteDepartamental_1',
-            onEachFeature: pop_LimiteDepartamental_1,
-            style: style_LimiteDepartamental_1_0,
-        });
-        bounds_group.addLayer(layer_LimiteDepartamental_1);
-        map.addLayer(layer_LimiteDepartamental_1);
-        function pop_PreciosPanelasEspeciales_2(feature, layer) {
+        function pop_PreciosPanelasEspeciales_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Departamen</th>\
@@ -125,10 +92,10 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 3140.000000 && feature.properties['$ por Kg'] <= 3185.000000 ) {
+        function style_PreciosPanelasEspeciales_1_0(feature) {
+            if (feature.properties['$ por Kg'] >= 3075.000000 && feature.properties['$ por Kg'] <= 3225.000000 ) {
                 return {
-                pane: 'pane_PreciosPanelasEspeciales_2',
+                pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -141,9 +108,9 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3185.000000 && feature.properties['$ por Kg'] <= 3260.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3225.000000 && feature.properties['$ por Kg'] <= 3297.500000 ) {
                 return {
-                pane: 'pane_PreciosPanelasEspeciales_2',
+                pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -156,9 +123,9 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3260.000000 && feature.properties['$ por Kg'] <= 3423.250000 ) {
+            if (feature.properties['$ por Kg'] >= 3297.500000 && feature.properties['$ por Kg'] <= 3419.250000 ) {
                 return {
-                pane: 'pane_PreciosPanelasEspeciales_2',
+                pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -171,9 +138,9 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3423.250000 && feature.properties['$ por Kg'] <= 3733.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3419.250000 && feature.properties['$ por Kg'] <= 3717.000000 ) {
                 return {
-                pane: 'pane_PreciosPanelasEspeciales_2',
+                pane: 'pane_PreciosPanelasEspeciales_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -187,22 +154,22 @@
             }
             }
         }
-        map.createPane('pane_PreciosPanelasEspeciales_2');
-        map.getPane('pane_PreciosPanelasEspeciales_2').style.zIndex = 402;
-        map.getPane('pane_PreciosPanelasEspeciales_2').style['mix-blend-mode'] = 'normal';
-        var layer_PreciosPanelasEspeciales_2 = new L.geoJson(json_PreciosPanelasEspeciales_2, {
+        map.createPane('pane_PreciosPanelasEspeciales_1');
+        map.getPane('pane_PreciosPanelasEspeciales_1').style.zIndex = 401;
+        map.getPane('pane_PreciosPanelasEspeciales_1').style['mix-blend-mode'] = 'normal';
+        var layer_PreciosPanelasEspeciales_1 = new L.geoJson(json_PreciosPanelasEspeciales_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PreciosPanelasEspeciales_2',
-            layerName: 'layer_PreciosPanelasEspeciales_2',
-            pane: 'pane_PreciosPanelasEspeciales_2',
-            onEachFeature: pop_PreciosPanelasEspeciales_2,
-            style: style_PreciosPanelasEspeciales_2_0,
+            dataVar: 'json_PreciosPanelasEspeciales_1',
+            layerName: 'layer_PreciosPanelasEspeciales_1',
+            pane: 'pane_PreciosPanelasEspeciales_1',
+            onEachFeature: pop_PreciosPanelasEspeciales_1,
+            style: style_PreciosPanelasEspeciales_1_0,
         });
-        bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
-        map.addLayer(layer_PreciosPanelasEspeciales_2);
+        bounds_group.addLayer(layer_PreciosPanelasEspeciales_1);
+        map.addLayer(layer_PreciosPanelasEspeciales_1);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_314031850.png" /></td><td>3140 - 3185</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_318532601.png" /></td><td>3185 - 3260</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_326034232.png" /></td><td>3260 - 3423</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_342337333.png" /></td><td>3423 - 3733</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_307532250.png" /></td><td>3075 - 3225</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_322532981.png" /></td><td>3225 - 3298</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_329834192.png" /></td><td>3298 - 3419</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_1_341937173.png" /></td><td>3419 - 3717</td></tr></table>': layer_PreciosPanelasEspeciales_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
         </script>
     </body>
