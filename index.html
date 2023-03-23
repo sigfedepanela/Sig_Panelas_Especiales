@@ -8,6 +8,8 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -30,15 +32,29 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
         <script src="data/LimiteDepartamental_1.js"></script>
         <script src="data/PreciosPanelasEspeciales_2.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-1.9364334211278011,-87.89413644350452],[12.193733582546304,-62.803438977954265]]);
+        }).fitBounds([[-1.384037872180435,-81.0195099213672],[12.74591533203427,-63.41115237960723]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
@@ -110,27 +126,27 @@
                         <td>' + (feature.properties['SEMANA'] !== null ? autolinker.link(feature.properties['SEMANA'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">$ por Kg</th>\
-                        <td>' + (feature.properties['$ por Kg'] !== null ? autolinker.link(feature.properties['$ por Kg'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">$ Prom Añ</th>\
-                        <td>' + (feature.properties['$ Prom Añ'] !== null ? autolinker.link(feature.properties['$ Prom Añ'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Prom_ Pais</th>\
-                        <td>' + (feature.properties['Prom_ Pais'] !== null ? autolinker.link(feature.properties['Prom_ Pais'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">PANELA</th>\
                         <td>' + (feature.properties['PANELA'] !== null ? autolinker.link(feature.properties['PANELA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">3_$ por Kg</th>\
+                        <td>' + (feature.properties['3_$ por Kg'] !== null ? autolinker.link(feature.properties['3_$ por Kg'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">3_$ Prom Añ</th>\
+                        <td>' + (feature.properties['3_$ Prom Añ'] !== null ? autolinker.link(feature.properties['3_$ Prom Añ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">3_Prom_ Pais</th>\
+                        <td>' + (feature.properties['3_Prom_ Pais'] !== null ? autolinker.link(feature.properties['3_Prom_ Pais'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 0.000000 && feature.properties['$ por Kg'] <= 2175.000000 ) {
+            if (feature.properties['3_$ por Kg'] >= 0.000000 && feature.properties['3_$ por Kg'] <= 2222.250000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -145,7 +161,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 2175.000000 && feature.properties['$ por Kg'] <= 2970.000000 ) {
+            if (feature.properties['3_$ por Kg'] >= 2222.250000 && feature.properties['3_$ por Kg'] <= 3051.500000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -160,7 +176,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 2970.000000 && feature.properties['$ por Kg'] <= 3198.750000 ) {
+            if (feature.properties['3_$ por Kg'] >= 3051.500000 && feature.properties['3_$ por Kg'] <= 3288.250000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -175,7 +191,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3198.750000 && feature.properties['$ por Kg'] <= 3675.000000 ) {
+            if (feature.properties['3_$ por Kg'] >= 3288.250000 && feature.properties['3_$ por Kg'] <= 3733.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -206,8 +222,15 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_021750.png" /></td><td>0 - 2175</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_217529701.png" /></td><td>2175 - 2970</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_297031992.png" /></td><td>2970 - 3199</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_319936753.png" /></td><td>3199 - 3675</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_022220.png" /></td><td>0 - 2222</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_222230521.png" /></td><td>2222 - 3052</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_305232882.png" /></td><td>3052 - 3288</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_328837333.png" /></td><td>3288 - 3733</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_LimiteDepartamental_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'DEPT'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
         </script>
     </body>
 </html>
