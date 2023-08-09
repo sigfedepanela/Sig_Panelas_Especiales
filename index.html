@@ -8,6 +8,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         html, body, #map {
@@ -32,6 +33,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
         <script src="data/LimiteDepartamental_1.js"></script>
         <script src="data/PreciosPanelasEspeciales_2.js"></script>
         <script>
@@ -52,7 +54,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-1.876773986615682,-84.16294426664933],[11.908722079984383,-67.03127970613708]]);
+        }).fitBounds([[-9.935413637908264,-89.02655140375046],[18.321579856383238,-53.38171146633855]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -96,8 +98,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">DEPT</th>\
-                        <td>' + (feature.properties['DEPT'] !== null ? autolinker.link(feature.properties['DEPT'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['DEPT'] !== null ? autolinker.link(feature.properties['DEPT'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -141,12 +142,12 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Departamen</th>\
-                        <td>' + (feature.properties['Departamen'] !== null ? autolinker.link(feature.properties['Departamen'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">OBJECTID</th>\
+                        <td>' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Año</th>\
-                        <td>' + (feature.properties['Año'] !== null ? autolinker.link(feature.properties['Año'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">DeNombre</th>\
+                        <td>' + (feature.properties['DeNombre'] !== null ? autolinker.link(feature.properties['DeNombre'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">MES</th>\
@@ -177,7 +178,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 0.000000 && feature.properties['$ por Kg'] <= 1950.000000 ) {
+            if (feature.properties['$ por Kg'] >= 0.000000 && feature.properties['$ por Kg'] <= 2070.400000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -192,7 +193,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 1950.000000 && feature.properties['$ por Kg'] <= 2850.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2070.400000 && feature.properties['$ por Kg'] <= 2859.200000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -203,11 +204,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(169,219,142,1.0)',
+                fillColor: 'rgba(194,230,153,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 2850.000000 && feature.properties['$ por Kg'] <= 3225.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2859.200000 && feature.properties['$ por Kg'] <= 3044.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -218,11 +219,26 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(73,175,96,1.0)',
+                fillColor: 'rgba(120,198,121,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3225.000000 && feature.properties['$ por Kg'] <= 3600.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3044.000000 && feature.properties['$ por Kg'] <= 3173.400000 ) {
+                return {
+                pane: 'pane_PreciosPanelasEspeciales_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(49,163,84,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['$ por Kg'] >= 3173.400000 && feature.properties['$ por Kg'] <= 3667.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -253,8 +269,15 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_019500.png" /></td><td>0 - 1950</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_195028501.png" /></td><td>1950 - 2850</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_285032252.png" /></td><td>2850 - 3225</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_322536003.png" /></td><td>3225 - 3600</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_020700.png" /></td><td>0 - 2070</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_207028591.png" /></td><td>2070 - 2859</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_285930442.png" /></td><td>2859 - 3044</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_304431733.png" /></td><td>3044 - 3173</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_317336674.png" /></td><td>3173 - 3667</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
         setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_LimiteDepartamental_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'DEPT'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
         </script>
     </body>
 </html>
