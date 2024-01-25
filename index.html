@@ -54,7 +54,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-9.410837667130517,-89.61523634774298],[18.845349706202217,-50.99028047673954]]);
+        }).fitBounds([[-10.904806806917279,-90.88357236151928],[17.35283436312695,-49.12529807112395]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -178,7 +178,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 0.000000 && feature.properties['$ por Kg'] <= 0.000000 ) {
+            if (feature.properties['$ por Kg'] >= 2940.000000 && feature.properties['$ por Kg'] <= 3108.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -193,7 +193,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 0.000000 && feature.properties['$ por Kg'] <= 1788.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3108.000000 && feature.properties['$ por Kg'] <= 3157.800000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -208,7 +208,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 1788.000000 && feature.properties['$ por Kg'] <= 3048.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3157.800000 && feature.properties['$ por Kg'] <= 3177.800000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -223,7 +223,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3048.000000 && feature.properties['$ por Kg'] <= 3270.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3177.800000 && feature.properties['$ por Kg'] <= 3310.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -238,7 +238,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3270.000000 && feature.properties['$ por Kg'] <= 3750.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3310.000000 && feature.properties['$ por Kg'] <= 3750.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -269,7 +269,7 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_000.png" /></td><td>0 - 0</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_017881.png" /></td><td>0 - 1788</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_178830482.png" /></td><td>1788 - 3048</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_304832703.png" /></td><td>3048 - 3270</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_327037504.png" /></td><td>3270 - 3750</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_294031080.png" /></td><td>2940 - 3108</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_310831581.png" /></td><td>3108 - 3158</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_315831782.png" /></td><td>3158 - 3178</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_317833103.png" /></td><td>3178 - 3310</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_331037504.png" /></td><td>3310 - 3750</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_LimiteDepartamental_1,
