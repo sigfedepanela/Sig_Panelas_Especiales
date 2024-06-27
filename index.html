@@ -178,7 +178,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 3100.000000 && feature.properties['$ por Kg'] <= 3180.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3150.000000 && feature.properties['$ por Kg'] <= 3260.400000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -193,7 +193,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3180.000000 && feature.properties['$ por Kg'] <= 3200.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3260.400000 && feature.properties['$ por Kg'] <= 3295.200000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -208,7 +208,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3200.000000 && feature.properties['$ por Kg'] <= 3426.800000 ) {
+            if (feature.properties['$ por Kg'] >= 3295.200000 && feature.properties['$ por Kg'] <= 3486.800000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -223,7 +223,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3426.800000 && feature.properties['$ por Kg'] <= 3784.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3486.800000 && feature.properties['$ por Kg'] <= 3777.600000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -238,7 +238,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 3784.000000 && feature.properties['$ por Kg'] <= 3852.000000 ) {
+            if (feature.properties['$ por Kg'] >= 3777.600000 && feature.properties['$ por Kg'] <= 3820.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -269,7 +269,7 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_310031800.png" /></td><td>3100 - 3180</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_318032001.png" /></td><td>3180 - 3200</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_320034272.png" /></td><td>3200 - 3427</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_342737843.png" /></td><td>3427 - 3784</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_378438524.png" /></td><td>3784 - 3852</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_315032600.png" /></td><td>3150 - 3260</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_326032951.png" /></td><td>3260 - 3295</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_329534872.png" /></td><td>3295 - 3487</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_348737783.png" /></td><td>3487 - 3778</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_377838204.png" /></td><td>3778 - 3820</td></tr></table>': layer_PreciosPanelasEspeciales_2,'<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental': layer_LimiteDepartamental_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_LimiteDepartamental_1,
