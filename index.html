@@ -59,7 +59,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-2.200361168923238,-83.19070374034526],[10.752790050206537,-64.70895142905405]]);
+        }).fitBounds([[-2.2003605174999326,-83.66752659724109],[10.75278683192465,-64.23249732218343]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -220,7 +220,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 3875.000000 && feature.properties['$ por Kg'] <= 4281.146097 ) {
+            if (feature.properties['$ por Kg'] >= 4100.000000 && feature.properties['$ por Kg'] <= 4325.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -235,7 +235,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4281.146097 && feature.properties['$ por Kg'] <= 4511.400000 ) {
+            if (feature.properties['$ por Kg'] >= 4325.000000 && feature.properties['$ por Kg'] <= 4733.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -250,7 +250,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4511.400000 && feature.properties['$ por Kg'] <= 4741.653903 ) {
+            if (feature.properties['$ por Kg'] >= 4733.000000 && feature.properties['$ por Kg'] <= 4920.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -265,7 +265,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4741.653903 && feature.properties['$ por Kg'] <= 5052.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4920.000000 && feature.properties['$ por Kg'] <= 5150.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -297,7 +297,7 @@
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var baseMaps = {};
         var overlaysTree = [
-            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_050DesvEstd0.png" /></td><td>< -0,50 Desv Estd</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_050DesvEstd000DesvEstd1.png" /></td><td>-0,50 Desv Estd - 0,00 Desv Estd</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_000DesvEstd050DesvEstd2.png" /></td><td>0,00 Desv Estd - 0,50 Desv Estd</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_050DesvEstd3.png" /></td><td>≥ 0,50 Desv Estd</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
+            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_410043250.png" /></td><td>4100 - 4325</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_432547331.png" /></td><td>4325 - 4733</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_473349202.png" /></td><td>4733 - 4920</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_492051503.png" /></td><td>4920 - 5150</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
             {label: '<img src="legend/LimiteDepartamental_1.png" /> Limite Departamental', layer: layer_LimiteDepartamental_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
