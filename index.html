@@ -37,7 +37,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Limite_Departamental_Geo_1.js"></script>
+        <script src="data/Limite_Departamental_1.js"></script>
         <script src="data/PreciosPanelasEspeciales_2.js"></script>
         <script>
         var highlightLayer;
@@ -119,7 +119,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_Limite_Departamental_Geo_1(feature, layer) {
+        function pop_Limite_Departamental_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -145,9 +145,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Limite_Departamental_Geo_1_0() {
+        function style_Limite_Departamental_1_0() {
             return {
-                pane: 'pane_Limite_Departamental_Geo_1',
+                pane: 'pane_Limite_Departamental_1',
                 opacity: 1,
                 color: 'rgba(128,152,72,0.64)',
                 dashArray: '',
@@ -160,20 +160,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Limite_Departamental_Geo_1');
-        map.getPane('pane_Limite_Departamental_Geo_1').style.zIndex = 401;
-        map.getPane('pane_Limite_Departamental_Geo_1').style['mix-blend-mode'] = 'normal';
-        var layer_Limite_Departamental_Geo_1 = new L.geoJson(json_Limite_Departamental_Geo_1, {
+        map.createPane('pane_Limite_Departamental_1');
+        map.getPane('pane_Limite_Departamental_1').style.zIndex = 401;
+        map.getPane('pane_Limite_Departamental_1').style['mix-blend-mode'] = 'normal';
+        var layer_Limite_Departamental_1 = new L.geoJson(json_Limite_Departamental_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Limite_Departamental_Geo_1',
-            layerName: 'layer_Limite_Departamental_Geo_1',
-            pane: 'pane_Limite_Departamental_Geo_1',
-            onEachFeature: pop_Limite_Departamental_Geo_1,
-            style: style_Limite_Departamental_Geo_1_0,
+            dataVar: 'json_Limite_Departamental_1',
+            layerName: 'layer_Limite_Departamental_1',
+            pane: 'pane_Limite_Departamental_1',
+            onEachFeature: pop_Limite_Departamental_1,
+            style: style_Limite_Departamental_1_0,
         });
-        bounds_group.addLayer(layer_Limite_Departamental_Geo_1);
-        map.addLayer(layer_Limite_Departamental_Geo_1);
+        bounds_group.addLayer(layer_Limite_Departamental_1);
+        map.addLayer(layer_Limite_Departamental_1);
         function pop_PreciosPanelasEspeciales_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -223,7 +223,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 4200.000000 && feature.properties['$ por Kg'] <= 4767.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4250.000000 && feature.properties['$ por Kg'] <= 4840.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -238,7 +238,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4767.000000 && feature.properties['$ por Kg'] <= 4840.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4840.000000 && feature.properties['$ por Kg'] <= 4850.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -253,7 +253,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4840.000000 && feature.properties['$ por Kg'] <= 5000.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4850.000000 && feature.properties['$ por Kg'] <= 5000.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -268,7 +268,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 5000.000000 && feature.properties['$ por Kg'] <= 5500.000000 ) {
+            if (feature.properties['$ por Kg'] >= 5000.000000 && feature.properties['$ por Kg'] <= 5300.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -299,8 +299,8 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var overlaysTree = [
-            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_420047670.png" /></td><td>4200 - 4767</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_476748401.png" /></td><td>4767 - 4840</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_484050002.png" /></td><td>4840 - 5000</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_500055003.png" /></td><td>5000 - 5500</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
-            {label: '<img src="legend/Limite_Departamental_Geo_1.png" /> Limite_Departamental_Geo ', layer: layer_Limite_Departamental_Geo_1},
+            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_425048400.png" /></td><td>4250 - 4840</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_484048501.png" /></td><td>4840 - 4850</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_485050002.png" /></td><td>4850 - 5000</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_500053003.png" /></td><td>5000 - 5300</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
+            {label: '<img src="legend/Limite_Departamental_1.png" /> Limite_Departamental', layer: layer_Limite_Departamental_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -309,9 +309,59 @@
             //openedSymbol: '&#8863; &#x1f5c1;',
             //collapseAll: 'Collapse all',
             //expandAll: 'Expand all',
-            collapsed: true,
+            collapsed: false, 
         });
         lay.addTo(map);
+		document.addEventListener("DOMContentLoaded", function() {
+            // set new Layers List height which considers toggle icon
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height 
+                        || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+            // toggle Collapsed/Expanded and apply new Layers List height
+            toggleLayerControl.addEventListener('click', function() {
+                if (isLayersListExpanded) {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                } else {
+                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
+                }
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight()
+            });	
+			// apply new Layers List height if toggle layerstree
+			if (controlLayersElement) {
+				controlLayersElement.addEventListener('click', function(event) {
+					var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+					if (toggleLayerHeaderPointer) {
+						newLayersListHeight();
+					}
+				});
+			}
+            // Collapsed/Expanded at Start to apply new height
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            // Collapsed touch/small screen
+            var isSmallScreen = window.innerWidth < 650;
+            if (isSmallScreen) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = !isLayersListExpanded;
+                }, 500);
+            }  
+        });       
         setBounds();
         </script>
     </body>
