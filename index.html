@@ -57,7 +57,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.5744298732628,-90.0922838736946],[19.16771540942888,-53.59316340995987]]);
+        }).fitBounds([[-3.6579785873774915,-84.14957600676684],[20.083478754926535,-47.8446958426316]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -223,7 +223,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 4500.000000 && feature.properties['$ por Kg'] <= 4840.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4450.000000 && feature.properties['$ por Kg'] <= 4840.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -238,7 +238,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4840.000000 && feature.properties['$ por Kg'] <= 5063.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4840.000000 && feature.properties['$ por Kg'] <= 5038.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -253,7 +253,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 5063.000000 && feature.properties['$ por Kg'] <= 5067.000000 ) {
+            if (feature.properties['$ por Kg'] >= 5038.000000 && feature.properties['$ por Kg'] <= 5067.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -268,7 +268,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 5067.000000 && feature.properties['$ por Kg'] <= 5250.000000 ) {
+            if (feature.properties['$ por Kg'] >= 5067.000000 && feature.properties['$ por Kg'] <= 5275.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -299,7 +299,7 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var overlaysTree = [
-            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_450048400.png" /></td><td>4500 - 4840</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_484050631.png" /></td><td>4840 - 5063</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_506350672.png" /></td><td>5063 - 5067</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_506752503.png" /></td><td>5067 - 5250</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
+            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_445048400.png" /></td><td>4450 - 4840</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_484050381.png" /></td><td>4840 - 5038</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_503850672.png" /></td><td>5038 - 5067</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_506752753.png" /></td><td>5067 - 5275</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
             {label: '<img src="legend/Limite_Departamental_1.png" /> Limite_Departamental', layer: layer_Limite_Departamental_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
