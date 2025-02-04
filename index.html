@@ -223,7 +223,7 @@
         }
 
         function style_PreciosPanelasEspeciales_2_0(feature) {
-            if (feature.properties['$ por Kg'] >= 4600.000000 && feature.properties['$ por Kg'] <= 4672.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4640.000000 && feature.properties['$ por Kg'] <= 4800.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -238,7 +238,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4672.000000 && feature.properties['$ por Kg'] <= 4967.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4800.000000 && feature.properties['$ por Kg'] <= 4883.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -253,7 +253,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 4967.000000 && feature.properties['$ por Kg'] <= 5400.000000 ) {
+            if (feature.properties['$ por Kg'] >= 4883.000000 && feature.properties['$ por Kg'] <= 5375.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -268,7 +268,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['$ por Kg'] >= 5400.000000 && feature.properties['$ por Kg'] <= 5738.000000 ) {
+            if (feature.properties['$ por Kg'] >= 5375.000000 && feature.properties['$ por Kg'] <= 5375.000000 ) {
                 return {
                 pane: 'pane_PreciosPanelasEspeciales_2',
                 opacity: 1,
@@ -299,7 +299,7 @@
         bounds_group.addLayer(layer_PreciosPanelasEspeciales_2);
         map.addLayer(layer_PreciosPanelasEspeciales_2);
         var overlaysTree = [
-            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_460046720.png" /></td><td>4600 - 4672</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_467249671.png" /></td><td>4672 - 4967</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_496754002.png" /></td><td>4967 - 5400</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_540057383.png" /></td><td>5400 - 5738</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
+            {label: 'Precios Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_464048000.png" /></td><td>4640 - 4800</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_480048831.png" /></td><td>4800 - 4883</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_488353752.png" /></td><td>4883 - 5375</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosPanelasEspeciales_2_537553753.png" /></td><td>5375 - 5375</td></tr></table>', layer: layer_PreciosPanelasEspeciales_2},
             {label: '<img src="legend/Limite_Departamental_1.png" /> Limite_Departamental', layer: layer_Limite_Departamental_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
