@@ -24,7 +24,7 @@
             margin: 0;
         }
         </style>
-        <title></title>
+        <title>Mapa interactivo - Precio promedio pagado al productor en mercados regionales no formales para panelas especiales</title>
     </head>
     <body>
         <div id="map">
@@ -98,6 +98,37 @@
 				popup._contentNode.classList.remove('media');
 			}
 		}
+        var title = new L.Control({'position':'topright'});
+        title.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+        title.update = function () {
+            this._div.innerHTML = '<h2>Mapa interactivo - Precio promedio pagado al productor en mercados regionales no formales para panelas especiales</h2>';
+        };
+        title.addTo(map);
+        var abstract = new L.Control({'position':'bottomright'});
+        abstract.onAdd = function (map) {
+            this._div = L.DomUtil.create('div',
+            'leaflet-control abstract');
+            this._div.id = 'abstract'
+                this._div.setAttribute("onmouseenter", "abstract.show()");
+                this._div.setAttribute("onmouseleave", "abstract.hide()");
+                this.hide();
+                return this._div;
+            };
+            abstract.hide = function () {
+                this._div.classList.remove("abstractUncollapsed");
+                this._div.classList.add("abstract");
+                this._div.innerHTML = 'i'
+            }
+            abstract.show = function () {
+                this._div.classList.remove("abstract");
+                this._div.classList.add("abstractUncollapsed");
+                this._div.innerHTML = 'Este mapa interactivo desarrollado por FEDEPANELA-FONDO DE FOMENTO PANELERO, presenta el precio promedio pagado al productor por Kg de panela especial en mercados regionales no formales, para los 5 principales departamentos productores de este tipo de panela en Colombia. <br />Para cada uno de los departamentos se resume: precio promedio pagado al productor por Kg de panela en la semana del año correspondiente, precio promedio pagado al productor por Kg de panela en lo corrido del año para el departamento y precio promedio pagado al productor por Kg de panela para todo el país. <br />Estos mapas se actualizan semanalmente y se presentan en la página web del Sistema de Información Panelero (SIPA) sección SIG precios: https://www.sipa.org.co/wp/index.php/category/sig/precios-sig/ ';
+        };
+        abstract.addTo(map);
         var zoomControl = L.control.zoom({
             position: 'topleft'
         }).addTo(map);
@@ -251,7 +282,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 4833.000000 && feature.properties['Precio ($) por Kg'] <= 5500.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 4833.000000 && feature.properties['Precio ($) por Kg'] <= 5353.000000 ) {
                 return {
                 pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
                 opacity: 1,
@@ -266,7 +297,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 5500.000000 && feature.properties['Precio ($) por Kg'] <= 5880.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 5353.000000 && feature.properties['Precio ($) por Kg'] <= 5880.000000 ) {
                 return {
                 pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
                 opacity: 1,
@@ -281,7 +312,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 5880.000000 && feature.properties['Precio ($) por Kg'] <= 5895.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 5880.000000 && feature.properties['Precio ($) por Kg'] <= 5905.000000 ) {
                 return {
                 pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
                 opacity: 1,
@@ -312,7 +343,7 @@
         bounds_group.addLayer(layer_PreciosporDepartamentoPanelasEspeciales_2);
         map.addLayer(layer_PreciosporDepartamentoPanelasEspeciales_2);
         var overlaysTree = [
-            {label: 'Precios por Departamento - Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_430048330.png" /></td><td>4300 - 4833</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_483355001.png" /></td><td>4833 - 5500</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_550058802.png" /></td><td>5500 - 5880</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_588058953.png" /></td><td>5880 - 5895</td></tr></table>', layer: layer_PreciosporDepartamentoPanelasEspeciales_2},
+            {label: 'Precios por Departamento - Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_430048330.png" /></td><td>4300 - 4833</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_483353531.png" /></td><td>4833 - 5353</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_535358802.png" /></td><td>5353 - 5880</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_588059053.png" /></td><td>5880 - 5905</td></tr></table>', layer: layer_PreciosporDepartamentoPanelasEspeciales_2},
             {label: '<img src="legend/Limite_Departamental_1.png" /> Limite_Departamental', layer: layer_Limite_Departamental_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
@@ -516,14 +547,14 @@
             var sel_PrecioporKg = document.getElementById('div_PrecioporKg');
             noUiSlider.create(sel_PrecioporKg, {
                 connect: true,
-                start: [4300, 5895],
+                start: [4300, 5905],
                 step: 1,
                 format: wNumb({
                     decimals: 0,
                     }),
                 range: {
                 min: 4300,
-                max: 5895
+                max: 5905
                 }
             });
             sel_PrecioporKg.noUiSlider.on('update', function (values) {
