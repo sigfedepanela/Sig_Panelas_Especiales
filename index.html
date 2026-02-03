@@ -50,18 +50,18 @@
 
             if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
               highlightLayer.setStyle({
-                color: '#ffffff',
+                color: 'rgba(255, 255, 255, 1.00)',
               });
             } else {
               highlightLayer.setStyle({
-                fillColor: '#ffffff',
+                fillColor: 'rgba(255, 255, 255, 1.00)',
                 fillOpacity: 1
               });
             }
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-3.3628028078733774,-83.77545300268343],[13.718312304633086,-58.74795082522155]]);
+        }).fitBounds([[-3.36278740939769,-87.83773868283053],[13.718248377899041,-54.79283561633818]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -295,7 +295,7 @@
         }
 
         function style_PreciosporDepartamentoPanelasEspeciales_2_0(feature) {
-            if (feature.properties['Precio ($) por Kg'] >= 4150.000000 && feature.properties['Precio ($) por Kg'] <= 4625.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 4000.000000 && feature.properties['Precio ($) por Kg'] <= 4840.000000 ) {
                 return {
                 pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
                 opacity: 1,
@@ -310,7 +310,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 4625.000000 && feature.properties['Precio ($) por Kg'] <= 4655.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 4840.000000 && feature.properties['Precio ($) por Kg'] <= 4950.000000 ) {
                 return {
                 pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
                 opacity: 1,
@@ -325,7 +325,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 4655.000000 && feature.properties['Precio ($) por Kg'] <= 4840.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 4950.000000 && feature.properties['Precio ($) por Kg'] <= 5006.000000 ) {
                 return {
                 pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
                 opacity: 1,
@@ -340,7 +340,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 4840.000000 && feature.properties['Precio ($) por Kg'] <= 5250.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 5006.000000 && feature.properties['Precio ($) por Kg'] <= 5317.000000 ) {
                 return {
                 pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
                 opacity: 1,
@@ -371,7 +371,7 @@
         bounds_group.addLayer(layer_PreciosporDepartamentoPanelasEspeciales_2);
         map.addLayer(layer_PreciosporDepartamentoPanelasEspeciales_2);
         var overlaysTree = [
-            {label: 'Precios por Departamento - Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_415046250.png" /></td><td>4150 - 4625</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_462546551.png" /></td><td>4625 - 4655</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_465548402.png" /></td><td>4655 - 4840</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_484052503.png" /></td><td>4840 - 5250</td></tr></table>', layer: layer_PreciosporDepartamentoPanelasEspeciales_2},
+            {label: 'Precios por Departamento - Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_400048400.png" /></td><td>4000 - 4840</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_484049501.png" /></td><td>4840 - 4950</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_495050062.png" /></td><td>4950 - 5006</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_500653173.png" /></td><td>5006 - 5317</td></tr></table>', layer: layer_PreciosporDepartamentoPanelasEspeciales_2},
             {label: '<img src="legend/Limite_Departamental_1.png" /> Limite_Departamental', layer: layer_Limite_Departamental_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
