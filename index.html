@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>Mapa interactivo - Precio promedio pagado al productor en mercados regionales no formales para panelas especiales</title>
+        <title>Mapa interactivo - Precio promedio pagado al productor en mercados regionales no formales para panelas corrientes</title>
     </head>
     <body>
         <div id="map">
@@ -41,8 +41,8 @@
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="js/leaflet-search.js"></script>
-        <script src="data/Limite_Departamental_1.js"></script>
-        <script src="data/PreciosporDepartamentoPanelasEspeciales_2.js"></script>
+        <script src="data/Lmite_Departamental_1.js"></script>
+        <script src="data/Precios_por_Departamento_2.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -61,7 +61,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-3.36278740939769,-87.83773868283053],[13.718248377899041,-54.79283561633818]]);
+        }).fitBounds([[-5.001512648409999,-90.56416130143812],[14.167230450009273,-53.532685506045276]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -133,7 +133,7 @@
             return this._div;
         };
         title.update = function () {
-            this._div.innerHTML = '<h2>Mapa interactivo - Precio promedio pagado al productor en mercados regionales no formales para panelas especiales</h2>';
+            this._div.innerHTML = '<h2>Mapa interactivo - Precio promedio pagado al productor en mercados regionales no formales para panelas corrientes</h2>';
         };
         title.addTo(map);
         var abstract = new L.Control({'position':'bottomright'});
@@ -154,7 +154,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Este mapa interactivo desarrollado por FEDEPANELA-FONDO DE FOMENTO PANELERO, presenta el precio promedio pagado al productor por Kg de panela especial en mercados regionales no formales, para los 5 principales departamentos productores de este tipo de panela en Colombia. <br />Para cada uno de los departamentos se resume: precio promedio pagado al productor por Kg de panela en la semana del año correspondiente, precio promedio pagado al productor por Kg de panela en lo corrido del año para el departamento y precio promedio pagado al productor por Kg de panela para todo el país. <br />Estos mapas se actualizan semanalmente y se presentan en la página web del Sistema de Información Panelero (SIPA) sección SIG precios: https://www.sipa.org.co/wp/index.php/category/sig/precios-sig/ ';
+                this._div.innerHTML = 'Este mapa interactivo desarrollado por FEDEPANELA-FONDO DE FOMENTO PANELERO, presenta el precio promedio pagado al productor por Kg de panela corriente en mercados regionales no formales, para los 13 principales departamentos productores de panela en Colombia. <br />Para cada uno de los departamentos se resume: precio promedio pagado al productor por Kg de panela en la semana del año correspondiente, precio promedio pagado al productor por Kg de panela en lo corrido del año para el departamento y precio promedio pagado al productor por Kg de panela para todo el país. <br />Estos mapas se actualizan semanalmente y se presentan en la página web del Sistema de Información Panelero (SIPA) sección SIG precios: https://www.sipa.org.co/wp/index.php/category/sig/precios-sig/ ';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
@@ -187,7 +187,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_Limite_Departamental_1(feature, layer) {
+        function pop_Lmite_Departamental_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -200,9 +200,6 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2">' + (feature.properties['DEPT'] !== null ? autolinker.link(String(feature.properties['DEPT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -213,9 +210,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Limite_Departamental_1_0() {
+        function style_Lmite_Departamental_1_0() {
             return {
-                pane: 'pane_Limite_Departamental_1',
+                pane: 'pane_Lmite_Departamental_1',
                 opacity: 1,
                 color: 'rgba(128,152,72,0.64)',
                 dashArray: '',
@@ -228,21 +225,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Limite_Departamental_1');
-        map.getPane('pane_Limite_Departamental_1').style.zIndex = 401;
-        map.getPane('pane_Limite_Departamental_1').style['mix-blend-mode'] = 'normal';
-        var layer_Limite_Departamental_1 = new L.geoJson(json_Limite_Departamental_1, {
+        map.createPane('pane_Lmite_Departamental_1');
+        map.getPane('pane_Lmite_Departamental_1').style.zIndex = 401;
+        map.getPane('pane_Lmite_Departamental_1').style['mix-blend-mode'] = 'normal';
+        var layer_Lmite_Departamental_1 = new L.geoJson(json_Lmite_Departamental_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Limite_Departamental_1',
-            layerName: 'layer_Limite_Departamental_1',
-            pane: 'pane_Limite_Departamental_1',
-            onEachFeature: pop_Limite_Departamental_1,
-            style: style_Limite_Departamental_1_0,
+            dataVar: 'json_Lmite_Departamental_1',
+            layerName: 'layer_Lmite_Departamental_1',
+            pane: 'pane_Lmite_Departamental_1',
+            onEachFeature: pop_Lmite_Departamental_1,
+            style: style_Lmite_Departamental_1_0,
         });
-        bounds_group.addLayer(layer_Limite_Departamental_1);
-        map.addLayer(layer_Limite_Departamental_1);
-        function pop_PreciosporDepartamentoPanelasEspeciales_2(feature, layer) {
+        bounds_group.addLayer(layer_Lmite_Departamental_1);
+        map.addLayer(layer_Lmite_Departamental_1);
+        function pop_Precios_por_Departamento_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -257,10 +254,6 @@
                     <tr>\
                         <th scope="row">Departamento</th>\
                         <td class="visible-with-data" id="Departamento">' + (feature.properties['Departamento'] !== null ? autolinker.link(String(feature.properties['Departamento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Panela</th>\
-                        <td class="visible-with-data" id="Panela">' + (feature.properties['Panela'] !== null ? autolinker.link(String(feature.properties['Panela']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Año</th>\
@@ -279,8 +272,8 @@
                         <td class="visible-with-data" id="Precio ($) por Kg">' + (feature.properties['Precio ($) por Kg'] !== null ? autolinker.link(String(feature.properties['Precio ($) por Kg']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Precio ($) por Kg - Promedio Año Departamento </th>\
-                        <td class="visible-with-data" id="Precio ($) por Kg - Promedio Año Departamento ">' + (feature.properties['Precio ($) por Kg - Promedio Año Departamento '] !== null ? autolinker.link(String(feature.properties['Precio ($) por Kg - Promedio Año Departamento ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Precio ($) por Kg - Promedio Año Departamento</th>\
+                        <td class="visible-with-data" id="Precio ($) por Kg - Promedio Año Departamento">' + (feature.properties['Precio ($) por Kg - Promedio Año Departamento'] !== null ? autolinker.link(String(feature.properties['Precio ($) por Kg - Promedio Año Departamento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Precio ($) por Kg - Promedio Año País</th>\
@@ -294,85 +287,85 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_PreciosporDepartamentoPanelasEspeciales_2_0(feature) {
-            if (feature.properties['Precio ($) por Kg'] >= 3886.000000 && feature.properties['Precio ($) por Kg'] <= 4067.000000 ) {
+        function style_Precios_por_Departamento_2_0(feature) {
+            if (feature.properties['Precio ($) por Kg'] >= 3433.000000 && feature.properties['Precio ($) por Kg'] <= 3433.000000 ) {
                 return {
-                pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
+                pane: 'pane_Precios_por_Departamento_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(128,14,16,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,204,1.0)',
+                fillColor: 'rgba(255,255,212,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 4067.000000 && feature.properties['Precio ($) por Kg'] <= 4100.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 3433.000000 && feature.properties['Precio ($) por Kg'] <= 4018.000000 ) {
                 return {
-                pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
+                pane: 'pane_Precios_por_Departamento_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(128,14,16,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(169,219,142,1.0)',
+                fillColor: 'rgba(254,196,108,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 4100.000000 && feature.properties['Precio ($) por Kg'] <= 4200.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 4018.000000 && feature.properties['Precio ($) por Kg'] <= 4440.000000 ) {
                 return {
-                pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
+                pane: 'pane_Precios_por_Departamento_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(128,14,16,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(73,175,96,1.0)',
+                fillColor: 'rgba(229,114,23,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['Precio ($) por Kg'] >= 4200.000000 && feature.properties['Precio ($) por Kg'] <= 4840.000000 ) {
+            if (feature.properties['Precio ($) por Kg'] >= 4440.000000 && feature.properties['Precio ($) por Kg'] <= 5139.000000 ) {
                 return {
-                pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
+                pane: 'pane_Precios_por_Departamento_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(128,14,16,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,104,55,1.0)',
+                fillColor: 'rgba(153,52,4,1.0)',
                 interactive: true,
             }
             }
         }
-        map.createPane('pane_PreciosporDepartamentoPanelasEspeciales_2');
-        map.getPane('pane_PreciosporDepartamentoPanelasEspeciales_2').style.zIndex = 402;
-        map.getPane('pane_PreciosporDepartamentoPanelasEspeciales_2').style['mix-blend-mode'] = 'normal';
-        var layer_PreciosporDepartamentoPanelasEspeciales_2 = new L.geoJson(json_PreciosporDepartamentoPanelasEspeciales_2, {
+        map.createPane('pane_Precios_por_Departamento_2');
+        map.getPane('pane_Precios_por_Departamento_2').style.zIndex = 402;
+        map.getPane('pane_Precios_por_Departamento_2').style['mix-blend-mode'] = 'normal';
+        var layer_Precios_por_Departamento_2 = new L.geoJson(json_Precios_por_Departamento_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PreciosporDepartamentoPanelasEspeciales_2',
-            layerName: 'layer_PreciosporDepartamentoPanelasEspeciales_2',
-            pane: 'pane_PreciosporDepartamentoPanelasEspeciales_2',
-            onEachFeature: pop_PreciosporDepartamentoPanelasEspeciales_2,
-            style: style_PreciosporDepartamentoPanelasEspeciales_2_0,
+            dataVar: 'json_Precios_por_Departamento_2',
+            layerName: 'layer_Precios_por_Departamento_2',
+            pane: 'pane_Precios_por_Departamento_2',
+            onEachFeature: pop_Precios_por_Departamento_2,
+            style: style_Precios_por_Departamento_2_0,
         });
-        bounds_group.addLayer(layer_PreciosporDepartamentoPanelasEspeciales_2);
-        map.addLayer(layer_PreciosporDepartamentoPanelasEspeciales_2);
+        bounds_group.addLayer(layer_Precios_por_Departamento_2);
+        map.addLayer(layer_Precios_por_Departamento_2);
         var overlaysTree = [
-            {label: 'Precios por Departamento - Panelas Especiales<br /><table><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_388640670.png" /></td><td>3886 - 4067</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_406741001.png" /></td><td>4067 - 4100</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_410042002.png" /></td><td>4100 - 4200</td></tr><tr><td style="text-align: center;"><img src="legend/PreciosporDepartamentoPanelasEspeciales_2_420048403.png" /></td><td>4200 - 4840</td></tr></table>', layer: layer_PreciosporDepartamentoPanelasEspeciales_2},
-            {label: '<img src="legend/Limite_Departamental_1.png" /> Limite_Departamental', layer: layer_Limite_Departamental_1},
+            {label: 'Precios_por_Departamento<br /><table><tr><td style="text-align: center;"><img src="legend/Precios_por_Departamento_2_343334330.png" /></td><td>3433 - 3433</td></tr><tr><td style="text-align: center;"><img src="legend/Precios_por_Departamento_2_343340181.png" /></td><td>3433 - 4018</td></tr><tr><td style="text-align: center;"><img src="legend/Precios_por_Departamento_2_401844402.png" /></td><td>4018 - 4440</td></tr><tr><td style="text-align: center;"><img src="legend/Precios_por_Departamento_2_444051393.png" /></td><td>4440 - 5139</td></tr></table>', layer: layer_Precios_por_Departamento_2},
+            {label: '<img src="legend/Lmite_Departamental_1.png" /> Límite_Departamental ', layer: layer_Lmite_Departamental_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -436,7 +429,7 @@
         });       
         setBounds();
         map.addControl(new L.Control.Search({
-            layer: layer_PreciosporDepartamentoPanelasEspeciales_2,
+            layer: layer_Precios_por_Departamento_2,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'Departamento'}));
