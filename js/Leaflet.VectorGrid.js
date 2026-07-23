@@ -1246,7 +1246,7 @@ Point$1.prototype = {
         return this.angleWithSep(b.x, b.y);
     },
 
-    // Find the angle of the two vectors, solving the formula for the cross product a x b = |a||b|sin(?) for ?.
+    // Find the angle of the two vectors, solving the formula for the cross product a x b = |a||b|sin(θ) for θ.
     angleWithSep: function(x, y) {
         return Math.atan2(
             this.x * y - this.y * x,
@@ -1715,8 +1715,8 @@ L.svg.tile = function(tileCoord, tileSize, opts){
 	return new L.SVG.Tile(tileCoord, tileSize, opts);
 };
 
-// ??class Symbolizer
-// ??inherits Class
+// 🍂class Symbolizer
+// 🍂inherits Class
 // The abstract Symbolizer class is mostly equivalent in concept to a `L.Path` - it's an interface for
 // polylines, polygons and circles. But instead of representing leaflet Layers,
 // it represents things that have to be drawn inside a vector tile.
@@ -1726,11 +1726,11 @@ L.svg.tile = function(tileCoord, tileSize, opts){
 // The actual symbolizers applied will depend on filters and the symbolizer functions.
 
 var Symbolizer = L.Class.extend({
-	// ??method initialize(feature: GeoJSON, pxPerExtent: Number)
+	// 🍂method initialize(feature: GeoJSON, pxPerExtent: Number)
 	// Initializes a new Line Symbolizer given a GeoJSON feature and the
 	// pixel-to-coordinate-units ratio. Internal use only.
 
-	// ??method render(renderer, style)
+	// 🍂method render(renderer, style)
 	// Renders this symbolizer in the given tiled renderer, with the given
 	// `L.Path` options.  Internal use only.
 	render: function(renderer, style) {
@@ -1740,7 +1740,7 @@ var Symbolizer = L.Class.extend({
 		renderer._updateStyle(this);
 	},
 
-	// ??method render(renderer, style)
+	// 🍂method render(renderer, style)
 	// Updates the `L.Path` options used to style this symbolizer, and re-renders it.
 	// Internal use only.
 	updateStyle: function(renderer, style) {
@@ -1795,8 +1795,8 @@ var PolyBase = {
 	}
 };
 
-// ??class PointSymbolizer
-// ??inherits CircleMarker
+// 🍂class PointSymbolizer
+// 🍂inherits CircleMarker
 // A symbolizer for points.
 
 var PointSymbolizer = L.CircleMarker.extend({
@@ -1886,8 +1886,8 @@ var PointSymbolizer = L.CircleMarker.extend({
 	}
 });
 
-// ??class LineSymbolizer
-// ??inherits Polyline
+// 🍂class LineSymbolizer
+// 🍂inherits Polyline
 // A symbolizer for lines. Can be applied to line and polygon features.
 
 var LineSymbolizer = L.Polyline.extend({
@@ -1910,8 +1910,8 @@ var LineSymbolizer = L.Polyline.extend({
 	},
 });
 
-// ??class FillSymbolizer
-// ??inherits Polyline
+// 🍂class FillSymbolizer
+// 🍂inherits Polyline
 // A symbolizer for filled areas. Applies only to polygon features.
 
 var FillSymbolizer = L.Polygon.extend({
@@ -1928,8 +1928,8 @@ var FillSymbolizer = L.Polygon.extend({
 	}
 });
 
-/* ??class VectorGrid
- * ??inherits GridLayer
+/* 🍂class VectorGrid
+ * 🍂inherits GridLayer
  *
  * A `VectorGrid` is a generic, abstract class for displaying tiled vector data.
  * it provides facilities for symbolizing and rendering the data in the vector
@@ -1942,21 +1942,19 @@ var FillSymbolizer = L.Polygon.extend({
 L.VectorGrid = L.GridLayer.extend({
 
 	options: {
-		// ??option rendererFactory = L.svg.tile
+		// 🍂option rendererFactory = L.svg.tile
 		// A factory method which will be used to instantiate the per-tile renderers.
 		rendererFactory: L.svg.tile,
 
-		// ??option vectorTileLayerStyles: Object = {}
+		// 🍂option vectorTileLayerStyles: Object = {}
 		// A data structure holding initial symbolizer definitions for the vector features.
 		vectorTileLayerStyles: {},
 
-        onEachFeature: null,
-
-		// ??option interactive: Boolean = false
+		// 🍂option interactive: Boolean = false
 		// Whether this `VectorGrid` fires `Interactive Layer` events.
 		interactive: false,
 
-		// ??option getFeatureId: Function = undefined
+		// 🍂option getFeatureId: Function = undefined
 		// A function that, given a vector feature, returns an unique identifier for it, e.g.
 		// `function(feat) { return feat.properties.uniqueIdField; }`.
 		// Must be defined for `setFeatureStyle` to work.
@@ -1968,17 +1966,32 @@ L.VectorGrid = L.GridLayer.extend({
 		if (this.options.getFeatureId) {
 			this._vectorTiles = {};
 			this._overriddenStyles = {};
+			this.on('tileunload', function(e) {
+				var key = this._tileCoordsToKey(e.coords),
+				    tile = this._vectorTiles[key];
+
+				if (tile && this._map) {
+					tile.removeFrom(this._map);
+				}
+				delete this._vectorTiles[key];
+			}, this);
 		}
-		this._userLayers = {};
-		this.on('tileunload', function(e) {
-			this._tileUnload(e);
- 		}, this);
 		this._dataLayerNames = {};
+		// Re-apply scale compensation when zoom changes without tile reload
+		this.on('add', function() {
+			if (this._map) {
+				this._map.on('zoomend', this._onZoomEnd, this);
+			}
+		}, this);
+		this.on('remove', function() {
+			if (this._map) {
+				this._map.off('zoomend', this._onZoomEnd, this);
+			}
+		}, this);
 	},
 
 	createTile: function(coords, done) {
 		var storeFeatures = this.options.getFeatureId;
-		var onEachFeature = this.options.onEachFeature;
 
 		var tileSize = this.getTileSize();
 		var renderer = this.options.rendererFactory(coords, tileSize, this.options);
@@ -2018,7 +2031,7 @@ L.VectorGrid = L.GridLayer.extend({
 					}
 
 					if (styleOptions instanceof Function) {
-						styleOptions = styleOptions(feat.properties, coords.z, feat.type);
+						styleOptions = styleOptions(feat.properties, coords.z);
 					}
 
 					if (!(styleOptions instanceof Array)) {
@@ -2026,25 +2039,31 @@ L.VectorGrid = L.GridLayer.extend({
 					}
 
 					if (!styleOptions.length) {
-						if (onEachFeature) {
-							onEachFeature.call(this, feat, null, layer, coords);
-						}
 						continue;
 					}
 
 					var featureLayer = this._createLayer(feat, pxPerExtent);
 
-					if (onEachFeature) {
-						onEachFeature.call(this, feat, null, layer, coords);
-					}
-
 					for (var j = 0; j < styleOptions.length; j++) {
-                        if (styleOptions[j] instanceof Function) {
-                            var styleOption = styleOptions[j](feat.properties, coords.z, feat.type);
-                        }
-						var style = L.extend({}, L.Path.prototype.options, styleOption);
+						var style = L.extend({}, L.Path.prototype.options, styleOptions[j]);
+						var origWeight = style.weight;
+						var origRadius = style.radius;
+						if (this._map && coords.z !== this._map.getZoom()) {
+							var scaleComp = this._map.getZoomScale(coords.z, this._map.getZoom());
+							if (style.weight !== undefined) { style.weight *= scaleComp; }
+							if (style.radius !== undefined) { style.radius *= scaleComp; }
+						}
 						featureLayer.render(renderer, style);
 						renderer._addPath(featureLayer);
+						// Store original unscaled values for zoomend compensation
+						if (featureLayer._path) {
+							if (origWeight !== undefined) {
+								featureLayer._path._leaflet_origWeight = origWeight;
+							}
+							if (origRadius !== undefined) {
+								featureLayer._path._leaflet_origRadius = origRadius;
+							}
+						}
 					}
 
 					if (this.options.interactive) {
@@ -2069,7 +2088,7 @@ L.VectorGrid = L.GridLayer.extend({
 		return renderer.getContainer();
 	},
 
-	// ??method setFeatureStyle(id: Number, layerStyle: L.Path Options): this
+	// 🍂method setFeatureStyle(id: Number, layerStyle: L.Path Options): this
 	// Given the unique ID for a vector features (as per the `getFeatureId` option),
 	// re-symbolizes that feature across all tiles it appears in.
 	setFeatureStyle: function(id, layerStyle) {
@@ -2093,7 +2112,7 @@ L.VectorGrid = L.GridLayer.extend({
 		return this;
 	},
 
-	// ??method setFeatureStyle(id: Number): this
+	// 🍂method setFeatureStyle(id: Number): this
 	// Reverts the effects of a previous `setFeatureStyle` call.
 	resetFeatureStyle: function(id) {
 		delete this._overriddenStyles[id];
@@ -2112,58 +2131,16 @@ L.VectorGrid = L.GridLayer.extend({
 		return this;
 	},
 
-	// ??method getDataLayerNames(): Array
+	// 🍂method getDataLayerNames(): Array
 	// Returns an array of strings, with all the known names of data layers in
 	// the vector tiles displayed. Useful for introspection.
 	getDataLayerNames: function() {
 		return Object.keys(this._dataLayerNames);
 	},
 
-	vtGeometryToPoint: function(geometry, vtLayer, tileCoords) {
-		var pxPerExtent = this.getTileSize().x / vtLayer.extent;
-		var tileSize = this.getTileSize();
-		var offset = tileCoords.scaleBy(tileSize);
-		var point;
-		if (typeof geometry[0] === 'object' && 'x' in geometry[0]) {
-			// Protobuf vector tiles return [{x: , y:}]
-			point = L.point(offset.x + (geometry[0].x * pxPerExtent), offset.y + (geometry[0].y * pxPerExtent));
-		} else {
-			// Geojson-vt returns [,]
-			point = L.point(offset.x + (geometry[0] * pxPerExtent), offset.y + (geometry[1] * pxPerExtent));
-		}
-		return point;
-	},
-
-	vtGeometryToLatLng: function(geometry, vtLayer, tileCoords) {
-		return this._map.unproject(this.vtGeometryToPoint(geometry, vtLayer, tileCoords));
-	},
-
-	addUserLayer: function(userLayer, tileCoords) {
-		var tileKey = this._tileCoordsToKey(tileCoords);
-		this._userLayers[tileKey] = this._userLayers[tileKey] || [];
-		this._userLayers[tileKey].push(userLayer);
-		this._map.addLayer(userLayer);
-	},
-
-	_tileUnload: function(e) {
-		var tileKey = this._tileCoordsToKey(e.coords);
-		if (this._vectorTiles) {
-			delete this._vectorTiles[tileKey];
-		}
-		var userLayers = this._userLayers[tileKey];
-		if (!userLayers) {
-			return;
-		}
-		for(var i = 0; i < userLayers.length; i++) {
-//			console.log('remove layer');
-			this._map.removeLayer(userLayers[i]);
-		}
-		delete this._userLayers[tileKey];
-	},
-
 	_updateStyles: function(feat, renderer, styleOptions) {
 		styleOptions = (styleOptions instanceof Function) ?
-			styleOptions(feat.properties, renderer.getCoord().z, feat.type) :
+			styleOptions(feat.properties, renderer.getCoord().z) :
 			styleOptions;
 
 		if (!(styleOptions instanceof Array)) {
@@ -2171,12 +2148,15 @@ L.VectorGrid = L.GridLayer.extend({
 		}
 
 		for (var j = 0; j < styleOptions.length; j++) {
-
-            var styleOption = (styleOptions[j] instanceof Function) ?
-                styleOptions[j](feat.properties, renderer.getCoord().z, feat.type) :
-                styleOptions[j];
-
-            var style = L.extend({}, L.Path.prototype.options, styleOption);
+			var style = L.extend({}, L.Path.prototype.options, styleOptions[j]);
+			if (this._map) {
+				var tileZoom = renderer.getCoord().z;
+				if (tileZoom !== this._map.getZoom()) {
+					var scaleComp = this._map.getZoomScale(tileZoom, this._map.getZoom());
+					if (style.weight !== undefined) { style.weight *= scaleComp; }
+					if (style.radius !== undefined) { style.radius *= scaleComp; }
+				}
+			}
 			feat.updateStyle(renderer, style);
 		}
 	},
@@ -2201,14 +2181,38 @@ L.VectorGrid = L.GridLayer.extend({
 
 		return layer;
 	},
+
+	_onZoomEnd: function() {
+		if (!this._map) { return; }
+		var tileZoom = this._tileZoom;
+		var mapZoom = this._map.getZoom();
+		if (tileZoom === undefined) { return; }
+		var scaleComp = (tileZoom === mapZoom) ? 1 : this._map.getZoomScale(tileZoom, mapZoom);
+		// Update all rendered paths to compensate for CSS scaling
+		// When tileZoom === mapZoom, scaleComp=1 restores original values
+		var tileContainer = this._map.getPane(this.options.pane || 'tilePane');
+		if (!tileContainer) { return; }
+		var paths = tileContainer.querySelectorAll('path');
+		for (var i = 0; i < paths.length; i++) {
+			var p = paths[i];
+			var origW = p._leaflet_origWeight;
+			if (origW !== undefined) {
+				p.setAttribute('stroke-width', origW * scaleComp);
+			}
+			var origR = p._leaflet_origRadius;
+			if (origR !== undefined) {
+				p.setAttribute('r', origR * scaleComp);
+			}
+		}
+	},
 });
 
 /*
- * ??section Extension methods
+ * 🍂section Extension methods
  *
  * Classes inheriting from `VectorGrid` **must** define the `_getVectorTilePromise` private method.
  *
- * ??method getVectorTilePromise(coords: Object): Promise
+ * 🍂method getVectorTilePromise(coords: Object): Promise
  * Given a `coords` object in the form of `{x: Number, y: Number, z: Number}`,
  * this function must return a `Promise` for a vector tile.
  *
@@ -2218,8 +2222,8 @@ L.vectorGrid = function (options) {
 };
 
 /*
- * ??class VectorGrid.Protobuf
- * ??extends VectorGrid
+ * 🍂class VectorGrid.Protobuf
+ * 🍂extends VectorGrid
  *
  * A `VectorGrid` for vector tiles fetched from the internet.
  * Tiles are supposed to be protobufs (AKA "protobuffer" or "Protocol Buffers"),
@@ -2232,7 +2236,7 @@ L.vectorGrid = function (options) {
  * - ESRI Vector Tiles
  * - [OpenMapTiles hosted Vector Tiles](https://openmaptiles.com/hosting/)
  *
- * ??example
+ * 🍂example
  *
  * You must initialize a `VectorGrid.Protobuf` with a URL template, just like in
  * `L.TileLayer`s. The difference is that the template must point to vector tiles
@@ -2266,16 +2270,16 @@ L.vectorGrid = function (options) {
 L.VectorGrid.Protobuf = L.VectorGrid.extend({
 
 	options: {
-		// ??section
+		// 🍂section
 		// As with `L.TileLayer`, the URL template might contain a reference to
 		// any option (see the example above and note the `{key}` or `token` in the URL
 		// template, and the corresponding option).
 		//
-		// ??option subdomains: String = 'abc'
+		// 🍂option subdomains: String = 'abc'
 		// Akin to the `subdomains` option for `L.TileLayer`.
 		subdomains: 'abc',	// Like L.TileLayer
 		//
-		// ??option fetchOptions: Object = {}
+		// 🍂option fetchOptions: Object = {}
 		// options passed to `fetch`, e.g. {credentials: 'same-origin'} to send cookie for the current domain
 		fetchOptions: {}
 	},
@@ -2287,7 +2291,7 @@ L.VectorGrid.Protobuf = L.VectorGrid.extend({
 		L.VectorGrid.prototype.initialize.call(this, options);
 	},
 
-	// ??method setUrl(url: String, noRedraw?: Boolean): this
+	// 🍂method setUrl(url: String, noRedraw?: Boolean): this
 	// Updates the layer's URL template and redraws it (unless `noRedraw` is set to `true`).
 	setUrl: function(url, noRedraw) {
 		this._url = url;
@@ -2366,7 +2370,7 @@ L.VectorGrid.Protobuf = L.VectorGrid.extend({
 });
 
 
-// ??factory L.vectorGrid.protobuf(url: String, options)
+// 🍂factory L.vectorGrid.protobuf(url: String, options)
 // Instantiates a new protobuf VectorGrid with the given URL template and options
 L.vectorGrid.protobuf = function (url, options) {
 	return new L.VectorGrid.Protobuf(url, options);
@@ -2379,13 +2383,13 @@ var workerCode = __$strToBlobUri("'use strict';\n\nvar simplify_1 = simplify$1;\
 // variable 'workerCode' is a blob URL.
 
 /*
- * ??class VectorGrid.Slicer
- * ??extends VectorGrid
+ * 🍂class VectorGrid.Slicer
+ * 🍂extends VectorGrid
  *
  * A `VectorGrid` for slicing up big GeoJSON or TopoJSON documents in vector
  * tiles, leveraging [`geojson-vt`](https://github.com/mapbox/geojson-vt).
  *
- * ??example
+ * 🍂example
  *
  * ```
  * var geoJsonDocument = {
@@ -2415,11 +2419,11 @@ var workerCode = __$strToBlobUri("'use strict';\n\nvar simplify_1 = simplify$1;\
 L.VectorGrid.Slicer = L.VectorGrid.extend({
 
 	options: {
-		// ??section
+		// 🍂section
 		// Additionally to these options, `VectorGrid.Slicer` can take in any
 		// of the [`geojson-vt` options](https://github.com/mapbox/geojson-vt#options).
 
-		// ??option vectorTileLayerName: String = 'sliced'
+		// 🍂option vectorTileLayerName: String = 'sliced'
 		// Vector tiles contain a set of *data layers*, and those data layers
 		// contain features. Thus, the slicer creates one data layer, with
 		// the name given in this option. This is important for symbolizing the data.

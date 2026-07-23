@@ -25,10 +25,18 @@ function resetLabels(markers) {
 
 function addLabel(layer, id) {
 
-  // This is ugly but there is no getContainer method on the tooltip :(
-  if (layer.getTooltip()) {
-      var label = layer.getTooltip()._source._tooltip._container;
-      if (label) {
+  var label = null;
+
+  // Try tooltip first
+  if (layer.getTooltip && layer.getTooltip()) {
+      label = layer.getTooltip()._source._tooltip._container;
+  }
+  // Fall back to divIcon
+  else if (layer._icon) {
+      label = layer._icon;
+  }
+
+  if (label) {
 
         // We need the bounding rectangle of the label itself
         var rect = label.getBoundingClientRect();
@@ -57,6 +65,5 @@ function addLabel(layer, id) {
           layer.addTo(map);
           layer.added = true;
         }
-      }
   }
 }
